@@ -88,6 +88,7 @@
 - (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response {
     
     NSLog(@"NSURLResponse is 请求成功！");
+    NSLog(@"response:%@",response);
     
 }
 

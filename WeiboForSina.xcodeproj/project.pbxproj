@@ -36,6 +36,11 @@
 		C38BD0E11AF3B6A9004FDAB0 /* add_pic_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38BD0DF1AF3B6A9004FDAB0 /* add_pic_hover@2x.png */; };
 		C38BD0E21AF3B6A9004FDAB0 /* add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38BD0E01AF3B6A9004FDAB0 /* add_pic@2x.png */; };
 		C38BD0E51AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38BD0E41AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m */; };
+		C3EBAE631AF7711500B3652B /* set_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE611AF7711500B3652B /* set_hover@2x.png */; };
+		C3EBAE641AF7711500B3652B /* set@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE621AF7711500B3652B /* set@2x.png */; };
+		C3EBAE671AF7719300B3652B /* login_btn_bg_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE651AF7719300B3652B /* login_btn_bg_hover@2x.png */; };
+		C3EBAE681AF7719300B3652B /* login_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE661AF7719300B3652B /* login_btn_bg@2x.png */; };
+		C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EBAE6A1AF7726C00B3652B /* WBPreferenceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +99,12 @@
 		C38BD0E01AF3B6A9004FDAB0 /* add_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_pic@2x.png"; sourceTree = "<group>"; };
 		C38BD0E31AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserInfoHomeTableViewController.h; sourceTree = "<group>"; };
 		C38BD0E41AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserInfoHomeTableViewController.m; sourceTree = "<group>"; };
+		C3EBAE611AF7711500B3652B /* set_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set_hover@2x.png"; sourceTree = "<group>"; };
+		C3EBAE621AF7711500B3652B /* set@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set@2x.png"; sourceTree = "<group>"; };
+		C3EBAE651AF7719300B3652B /* login_btn_bg_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn_bg_hover@2x.png"; sourceTree = "<group>"; };
+		C3EBAE661AF7719300B3652B /* login_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn_bg@2x.png"; sourceTree = "<group>"; };
+		C3EBAE691AF7726C00B3652B /* WBPreferenceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPreferenceTableViewController.h; sourceTree = "<group>"; };
+		C3EBAE6A1AF7726C00B3652B /* WBPreferenceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPreferenceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +260,10 @@
 		C38BD0D11AF3AA60004FDAB0 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C3EBAE651AF7719300B3652B /* login_btn_bg_hover@2x.png */,
+				C3EBAE661AF7719300B3652B /* login_btn_bg@2x.png */,
+				C3EBAE611AF7711500B3652B /* set_hover@2x.png */,
+				C3EBAE621AF7711500B3652B /* set@2x.png */,
 				C38BD0DF1AF3B6A9004FDAB0 /* add_pic_hover@2x.png */,
 				C38BD0E01AF3B6A9004FDAB0 /* add_pic@2x.png */,
 				C38BD0DD1AF3B5E8004FDAB0 /* image_bg@2x.png */,
@@ -270,6 +285,8 @@
 			children = (
 				C38BD0E31AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.h */,
 				C38BD0E41AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m */,
+				C3EBAE691AF7726C00B3652B /* WBPreferenceTableViewController.h */,
+				C3EBAE6A1AF7726C00B3652B /* WBPreferenceTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,11 +372,15 @@
 				C38BD0D41AF3AAB2004FDAB0 /* self_hover@2x.png in Resources */,
 				C32B0CD81AE7BD5B008FB262 /* InfoPlist.strings in Resources */,
 				C38BD0E21AF3B6A9004FDAB0 /* add_pic@2x.png in Resources */,
+				C3EBAE631AF7711500B3652B /* set_hover@2x.png in Resources */,
 				C38BD0D51AF3AAB2004FDAB0 /* self@2x.png in Resources */,
 				C32B0CE11AE7BD5B008FB262 /* Main.storyboard in Resources */,
+				C3EBAE681AF7719300B3652B /* login_btn_bg@2x.png in Resources */,
 				C384785F1AF37E0600B8A8EB /* WeiboSDK.bundle in Resources */,
 				C38BD0E11AF3B6A9004FDAB0 /* add_pic_hover@2x.png in Resources */,
+				C3EBAE671AF7719300B3652B /* login_btn_bg_hover@2x.png in Resources */,
 				C38BD0DE1AF3B5E8004FDAB0 /* image_bg@2x.png in Resources */,
+				C3EBAE641AF7711500B3652B /* set@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +404,7 @@
 				C32B0CDA1AE7BD5B008FB262 /* main.m in Sources */,
 				C32B0CDE1AE7BD5B008FB262 /* WBAppDelegate.m in Sources */,
 				C35475C81AF6FEC5007C43EA /* WBUserInfo.m in Sources */,
+				C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

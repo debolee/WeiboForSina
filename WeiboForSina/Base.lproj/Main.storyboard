@@ -161,6 +161,71 @@
             </objects>
             <point key="canvasLocation" x="748" y="-644"/>
         </scene>
+        <!--Preference Table View Controller-->
+        <scene sceneID="03r-KZ-Zxd">
+            <objects>
+                <tableViewController id="NQq-2x-aVZ" customClass="WBPreferenceTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jue-qS-6P0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="xX2-8s-1Md">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="usR-yr-FgK">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usR-yr-FgK" id="1g8-wl-Nps">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="K0l-kU-phF">
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K0l-kU-phF" id="nt1-2S-uJY">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="99R-HT-Puk">
+                                <cells>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JN8-gl-uxk">
+                                        <rect key="frame" x="0.0" y="207" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JN8-gl-uxk" id="Tce-UT-T8N">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Rj-KV-zdx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="退出登录" backgroundImage="login_btn_bg.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logoutAction:" destination="NQq-2x-aVZ" eventType="touchUpInside" id="hZN-8X-WEZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="NQq-2x-aVZ" id="VT5-RB-HnP"/>
+                            <outlet property="delegate" destination="NQq-2x-aVZ" id="MMR-ti-yjT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="jSI-vj-5OR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WA8-r2-3eA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="91"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VbO-oe-kOx">
             <objects>
@@ -173,31 +238,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="Kfg-kf-cXG" kind="relationship" relationship="viewControllers" id="9A4-GO-nWX"/>
-                        <segue destination="Mkh-Q7-LWF" kind="relationship" relationship="viewControllers" id="Y5e-LF-vXo"/>
+                        <segue destination="wxd-Zb-Hfv" kind="relationship" relationship="viewControllers" id="RhM-YS-Lj1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3r-EX-E9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-365" y="-298"/>
-        </scene>
-        <!--View Controller - Item 2-->
-        <scene sceneID="tjE-ij-ih5">
-            <objects>
-                <viewController id="Mkh-Q7-LWF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qvd-CD-iVY"/>
-                        <viewControllerLayoutGuide type="bottom" id="8FC-1J-77r"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eZO-U1-mbi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="d4S-dI-wTL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UCq-7Q-GbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="169" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7LK-2m-7ai">
@@ -220,11 +266,34 @@
             </objects>
             <point key="canvasLocation" x="186" y="-644"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="88d-Bp-4C8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxd-Zb-Hfv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="set_hover.png" id="tIl-hK-pd9">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bz4-R7-DE7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NQq-2x-aVZ" kind="relationship" relationship="rootViewController" id="2Qk-Nm-dqo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYj-Ug-yS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186" y="71"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add_pic.png" width="29" height="25"/>
         <image name="image_bg.png" width="384" height="202"/>
+        <image name="login_btn_bg.png" width="294" height="47"/>
         <image name="self_hover.png" width="78" height="45"/>
+        <image name="set_hover.png" width="78" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
