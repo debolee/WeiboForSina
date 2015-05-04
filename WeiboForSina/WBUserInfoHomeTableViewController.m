@@ -101,10 +101,10 @@
 //    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"dada String is :%@", str);
     self.userInfo = [WBJsonParser parseUserInfoWithDada:data];
-//    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self updateUI];
-//    });
-    
+    });
+
 }
 
 
