@@ -24,7 +24,6 @@
 		C35475CC1AF6FF42007C43EA /* WBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35475CB1AF6FF42007C43EA /* WBJsonParser.m */; };
 		C384785E1AF37E0600B8A8EB /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478531AF37E0600B8A8EB /* libWeiboSDK.a */; };
 		C384785F1AF37E0600B8A8EB /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C384785B1AF37E0600B8A8EB /* WeiboSDK.bundle */; };
-		C38478611AF37E7B00B8A8EB /* AppKeyAndSecret in Resources */ = {isa = PBXBuildFile; fileRef = C38478601AF37E7B00B8A8EB /* AppKeyAndSecret */; };
 		C38478631AF3831300B8A8EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478621AF3831300B8A8EB /* QuartzCore.framework */; };
 		C38478651AF3831F00B8A8EB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478641AF3831F00B8A8EB /* ImageIO.framework */; };
 		C38478671AF3833C00B8A8EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478661AF3833C00B8A8EB /* SystemConfiguration.framework */; };
@@ -82,7 +81,6 @@
 		C384785B1AF37E0600B8A8EB /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		C384785C1AF37E0600B8A8EB /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		C384785D1AF37E0600B8A8EB /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
-		C38478601AF37E7B00B8A8EB /* AppKeyAndSecret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppKeyAndSecret; sourceTree = "<group>"; };
 		C38478621AF3831300B8A8EB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C38478641AF3831F00B8A8EB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C38478661AF3833C00B8A8EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -190,7 +188,6 @@
 				C32B0CD61AE7BD5B008FB262 /* InfoPlist.strings */,
 				C32B0CD91AE7BD5B008FB262 /* main.m */,
 				C32B0CDB1AE7BD5B008FB262 /* WeiboForSina-Prefix.pch */,
-				C38478601AF37E7B00B8A8EB /* AppKeyAndSecret */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 				C38BD0D51AF3AAB2004FDAB0 /* self@2x.png in Resources */,
 				C32B0CE11AE7BD5B008FB262 /* Main.storyboard in Resources */,
 				C384785F1AF37E0600B8A8EB /* WeiboSDK.bundle in Resources */,
-				C38478611AF37E7B00B8A8EB /* AppKeyAndSecret in Resources */,
 				C38BD0E11AF3B6A9004FDAB0 /* add_pic_hover@2x.png in Resources */,
 				C38BD0DE1AF3B5E8004FDAB0 /* image_bg@2x.png in Resources */,
 			);
