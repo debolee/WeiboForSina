@@ -40,6 +40,7 @@
         NSLog(@"登录成功！");
         NSLog(@"self.wbToken is:%@", self.wbToken);
         NSLog(@"self.wbCurrentUserID is:%@", self.wbCurrentUserID);
+
     }
 }
 

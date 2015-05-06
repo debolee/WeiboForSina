@@ -37,8 +37,10 @@
 
 - (IBAction)logoutAction:(UIButton *)sender {
     NSLog(@"退出登录！");
-    WBAppDelegate *myDelegate =(WBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [WeiboSDK logOutWithToken:myDelegate.wbToken delegate:self withTag:@"user1"];
+    WBAppDelegate *appDelegate =(WBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [WeiboSDK logOutWithToken:appDelegate.wbToken delegate:self withTag:@"user1"];
+    appDelegate.wbToken = nil;
+    
 }
 
 - (void)didReceiveMemoryWarning

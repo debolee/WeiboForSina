@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *simplyIntroduction;
 @property (weak, nonatomic) IBOutlet UILabel *school;
 @property (weak, nonatomic) IBOutlet UILabel *site;
-@property (weak, nonatomic) IBOutlet UITextView *detailIntroduction;
+@property (weak, nonatomic) IBOutlet UILabel *detailIntroduction;
+
 
 @end

@@ -36,6 +36,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,9 +56,7 @@
             [self login];
         });
     } else {
-        
         [WBHttpRequest requestWithAccessToken:self.appDelegate.wbToken url:@"https://api.weibo.com/2/users/show.json" httpMethod:@"GET" params:@{@"uid": self.appDelegate.wbCurrentUserID} delegate:self withTag:nil];
-        
     }
 
 }
