@@ -15,7 +15,7 @@
     WBUserInfo * userInfo = [[WBUserInfo alloc]init];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     userInfo.coverImagePath = [dic objectForKey:@"cover_image_phone"];
-    userInfo.portraitImagePath = [dic objectForKey:@"profile_image_url"];
+    userInfo.portraitImagePath = [dic objectForKey:@"avatar_large"];
     userInfo.nickName = [dic objectForKey:@"screen_name"];
     userInfo.followerCount = [dic objectForKey:@"friends_count"];
     userInfo.fanscount = [dic objectForKey:@"followers_count"];

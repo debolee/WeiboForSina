@@ -7,9 +7,7 @@
 //
 
 #import "WBUserInfoHomeTableViewController.h"
-#import "WBAppDelegate.h"
-#import "WBUserInfo.h"
-#import "WBJsonParser.h"
+
 
 @interface WBUserInfoHomeTableViewController ()
 @property (nonatomic, weak)WBAppDelegate *appDelegate;
@@ -40,26 +38,57 @@
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     
-    
+
+
+
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    self.appDelegate.wbdelegate = self;
+    
     [super viewWillAppear:animated];
     self.portraitImage.layer.cornerRadius = 40;
     self.portraitImage.layer.masksToBounds = YES;
     self.portraitImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.portraitImage.layer.borderWidth = 2.0;
     
+    NSLog(@"viewWillAppear 方法执行了。。。。。。。。。");
+    
     if (!self.appDelegate.wbToken) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self login];
         });
     } else {
-        [WBHttpRequest requestWithAccessToken:self.appDelegate.wbToken url:@"https://api.weibo.com/2/users/show.json" httpMethod:@"GET" params:@{@"uid": self.appDelegate.wbCurrentUserID} delegate:self withTag:nil];
+        [self requestUserInfo];
     }
 
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidAppear方法执行了。。。。。。。。。");
+}
+
+#pragma mark 授权验证
+- (void)login {
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = WBAppRedirectURL;
+    request.scope = @"all";
+    request.userInfo = nil;
+    [WeiboSDK sendRequest:request];
+}
+
+//发送获取用户信息的请求
+- (void)requestUserInfo {
+    [WBHttpRequest requestWithAccessToken:self.appDelegate.wbToken url:@"https://api.weibo.com/2/users/show.json" httpMethod:@"GET" params:@{@"uid": self.appDelegate.wbCurrentUserID} delegate:self withTag:nil];
+}
+
+#pragma  mark forCallBackDidReceiveWeiboResponseDelegate
+- (void)CallBackDidReceiveWeiboResponse:(id)obj {
+    [self requestUserInfo];
+}
+
 
 
 - (void)updateUI {
@@ -113,21 +142,12 @@
 }
 
 
-#pragma mark 授权验证
-- (void)login {
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = WBAppRedirectURL;
-    request.scope = @"all";
-    request.userInfo = nil;
-    [WeiboSDK sendRequest:request];
-    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 

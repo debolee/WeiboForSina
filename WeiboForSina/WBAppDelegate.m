@@ -30,9 +30,11 @@
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
+
+
 #pragma mark -WeiboSDKDelegate
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-
+    
     if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
         self.wbToken = [(WBAuthorizeResponse *)response accessToken];
@@ -40,15 +42,17 @@
         NSLog(@"登录成功！");
         NSLog(@"self.wbToken is:%@", self.wbToken);
         NSLog(@"self.wbCurrentUserID is:%@", self.wbCurrentUserID);
-
+        NSLog(@"self.wbCurrentUserID is:%@", self.wbCurrentUserID);
+         [NSUserDefaults standardUserDefaults];
+        [self.wbdelegate CallBackDidReceiveWeiboResponse:nil];
     }
 }
 
+
+
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
-    //收到一个来自微博客户端程序的请求
+    NSLog(@"didReceiveWeiboRequest执行了。。。。。。。");
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

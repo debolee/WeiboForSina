@@ -9,14 +9,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeiboForSina/WBAppDelegate.m"
-            timestampString = "452576686.408951"
+            filePath = "WeiboForSina/WBUserInfoHomeTableViewController.h"
+            timestampString = "452691128.3015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-didReceiveWeiboResponse:"
-            landmarkType = "5">
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "@interface WBUserInfoHomeTableViewController"
+            landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WBUserInfoHomeTableViewController coverImage]"
+                  moduleName = "WeiboForSina"
+                  urlString = "file:///Users/BOBO/Documents/iOS%E7%BB%83%E4%B9%A0%E4%BB%A3%E7%A0%81/WeiboForSina/WeiboForSina/WBUserInfoHomeTableViewController.h"
+                  timestampString = "452690806.351901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WBUserInfoHomeTableViewController setCoverImage:]"
+                  moduleName = "WeiboForSina"
+                  urlString = "file:///Users/BOBO/Documents/iOS%E7%BB%83%E4%B9%A0%E4%BB%A3%E7%A0%81/WeiboForSina/WeiboForSina/WBUserInfoHomeTableViewController.h"
+                  timestampString = "452690806.371234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
