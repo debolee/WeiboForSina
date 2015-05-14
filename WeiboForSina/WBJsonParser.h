@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "WBUserInfo.h"
+#import "WBWeibo.h"
 
 @interface WBJsonParser : NSObject
-+ (WBUserInfo *)parseUserInfoWithDada:(NSData *)data;
-
++ (WBUserInfo *)parseUserInfoByData:(NSData *)data;
++ (WBUserInfo *)parseUserInfoByDictionary:(NSDictionary *)dic;
+//解析微博
++(WBWeibo *)parseWeiboByDictionary:(NSDictionary *)dic;
 @end

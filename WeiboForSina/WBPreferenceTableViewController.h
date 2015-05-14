@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WBPreferenceTableViewController : UITableViewController<WBHttpRequestDelegate>
+@interface WBPreferenceTableViewController : UITableViewController<WBHttpRequestDelegate, UIActionSheetDelegate>
 
 @end
