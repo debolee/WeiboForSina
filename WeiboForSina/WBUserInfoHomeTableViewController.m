@@ -131,7 +131,7 @@
 
 - (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error {
     
-    NSLog(@"请求失败！！！！！！！！%d",error.code);
+    NSLog(@"请求失败！！！！！！！！%ld",error.code);
     NSLog(@"error :%@",[error localizedDescription]);
     NSLog(@"error :%@",[error localizedFailureReason]);
     NSLog(@"error :%@",[error localizedRecoverySuggestion]);

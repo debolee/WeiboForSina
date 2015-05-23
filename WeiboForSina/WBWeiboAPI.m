@@ -7,6 +7,7 @@
 //
 
 #import "WBWeiboAPI.h"
+
 static WBWeiboAPI *weiboApi;
 
 @implementation WBWeiboAPI
@@ -18,9 +19,12 @@ static WBWeiboAPI *weiboApi;
     return weiboApi;
 }
 
+
+//获取当前登录用户及其所关注用户的最新微博
 - (void)requestHomeTimeLineWithPageNumber:(NSInteger)page completionCallBack:(callBack)callBack {
     
-    NSString *params = [NSString stringWithFormat:@"since_id=0&max_id=0&count=20&page=%ld&base_app=0&feature=0&trim_user=0", page];
+    NSString *params = [NSString stringWithFormat:@"since_id=0&max_id=0&count=20&page=%ld&base_app=0&feature=0&trim_user=0", (long)page];
+    
     
     [self getByApiName:@"statuses/home_timeline.json" andParams:params andCallBack:^(id obj) {
         NSDictionary *dic = obj;
@@ -31,6 +35,26 @@ static WBWeiboAPI *weiboApi;
             [weibos addObject:weibo];
         }
      callBack(weibos);
+    }];
+}
+
+//获取某条微博的评论列表
+- (void)requestCommentsByWeiboId:(NSString *)weiboId WithPageNumber:(NSInteger)page completionCallBack:(callBack)callBack {
+    
+    //请求回来的ID是int64类型的数据
+    long long intWeibId = [weiboId longLongValue];
+    
+    NSString *params = [NSString stringWithFormat:@"id=%lld&since_id=0&max_id=0&count=50&page=%ld&filter_by_author=0" ,intWeibId , (long)page];
+    
+    [self getByApiName:@"comments/show.json" andParams:params andCallBack:^(id obj) {
+        NSArray *commentsDic = [(NSDictionary *)obj objectForKey:@"comments"];
+        NSMutableArray *comments = [NSMutableArray array];
+        for (NSDictionary *commentDic in commentsDic) {
+            WBComment *comment = [WBJsonParser parseCommentByDictionary:commentDic];
+            [comments addObject:comment];
+        }
+        
+        callBack(comments);
     }];
 }
 

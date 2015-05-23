@@ -1,8 +1,8 @@
 //
-//  WBWeiboCell.h
+//  WBDetailWeiboHeaderView.h
 //  WeiboForSina
 //
-//  Created by BOBO on 15/5/10.
+//  Created by BOBO on 15/5/16.
 //  Copyright (c) 2015年 BobooO. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "WBWeibo.h"
 #import "WBWeiboView.h"
 
-@interface WBWeiboCell : UITableViewCell<UIActionSheetDelegate>
+@interface WBDetailWeiboHeaderView : UIView
 @property (nonatomic, strong)WBWeiboView *weiboView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nick;
@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *transNums;
 @property (weak, nonatomic) IBOutlet UIButton *commentNum;
 @property (weak, nonatomic) IBOutlet UIButton *attitCount;
-@property (weak, nonatomic) IBOutlet UIButton *moreOperation;
 
 @property(nonatomic,strong)WBWeibo * weibo;
 @end

@@ -1,19 +1,19 @@
 //
-//  WBHomeTableViewController.m
+//  WBDetailWeiboTableViewController.m
 //  WeiboForSina
 //
-//  Created by BOBO on 15/5/9.
+//  Created by BOBO on 15/5/15.
 //  Copyright (c) 2015年 BobooO. All rights reserved.
 //
 
-#import "WBHomeTableViewController.h"
 #import "WBDetailWeiboTableViewController.h"
+#import "WBCommentCell.h"
 
-@interface WBHomeTableViewController ()
-@property (nonatomic, strong)NSMutableArray *weibos;
+@interface WBDetailWeiboTableViewController ()
+
 @end
 
-@implementation WBHomeTableViewController
+@implementation WBDetailWeiboTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,51 +27,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.weibos = [[NSMutableArray alloc]init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
 
-    self.navigationItem.titleView = [self titleViewWithTitleStr:@"我的分组"];
     
-    
-}
-
-#pragma mark 设置导航栏中间titleView
-- (UIButton *) titleViewWithTitleStr:(NSString *) title {
-    UIButton *titleButton = [[UIButton alloc]init];
-    [titleButton setTitle:title forState:UIControlStateNormal];
-    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    titleButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateHighlighted];
-    
-    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 90, 0, 0);
-    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
-    // 130这个值目前是随便写的，后面要改为根据内容自动计算长度
-    titleButton.frame = CGRectMake(titleButton.frame.origin.x, titleButton.frame.origin.y, 130, 40);
-    return titleButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    self.detailWeiboHeaderView.weibo = self.weibo;
+    self.detailWeiboHeaderView.backgroundColor = [UIColor redColor];
+    self.detailWeiboHeaderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, [self.weibo getWeiboHeightIsDetailPage:YES] + 110);
+    
+    self.tableView.tableHeaderView = self.detailWeiboHeaderView;
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
-            self.weibos = obj;
+        [[WBWeiboAPI shareWeiboApi] requestCommentsByWeiboId:self.weibo.weiboId WithPageNumber:1 completionCallBack:^(id obj) {
+            self.comments = obj;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
-            NSLog(@"self.tableView reloadData!!!");
         }];
     }
-    
+
 
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -81,34 +68,30 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    
-    NSLog(@"self.weibos.count :%ld",self.weibos.count);
-    return self.weibos.count;
-
+    return self.comments.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WBWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
+    WBCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
     
-    NSLog(@"cell is cell...!!!");
-    cell.weibo = [self.weibos objectAtIndex:indexPath.row];
+    cell.comment = self.comments[indexPath.row];
+    
     return cell;
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    WBWeibo *weibo = self.weibos[indexPath.row];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WBComment *comment = [self.comments objectAtIndex:indexPath.row];
+    float height = [comment getCommentHeightWithWidth:self.tableView.frame.size.width - 62];
     
-    return [weibo getWeiboHeightIsDetailPage:NO]+110;
-    
+//    float height= [comment getCommentHeight];
+//    float height = 100;
+    NSLog(@"height is :%f", height);
+    return height + 65;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -148,20 +131,15 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"detailWeibo"]) {
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSLog(@"indexPath.row is :%ld",(long)indexPath.row);
-        WBDetailWeiboTableViewController *dvc = [segue destinationViewController];
-        dvc.weibo = self.weibos[indexPath.row];
-    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
+*/
 
 @end

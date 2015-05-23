@@ -19,5 +19,6 @@
 
 #define WBAppKey         @"2539468250"
 #define WBAppRedirectURL    @"https://api.weibo.com/oauth2/default.html"
+#define FONTSIZE_OF_WB 14
 
 #endif

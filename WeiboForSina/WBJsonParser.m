@@ -47,6 +47,7 @@
     myWeibo.source = [dic objectForKey:@"source"];
     myWeibo.repostsCount = [NSString stringWithFormat:@"%@",[dic objectForKey:@"reposts_count"]];
     myWeibo.commentsCount = [NSString stringWithFormat:@"%@",[dic objectForKey:@"comments_count"]];
+    myWeibo.attitudesCount = [NSString stringWithFormat:@"%@",[dic objectForKey:@"attitudes_count"]];
     NSDictionary *locationDic = [dic objectForKey:@"geo"];
     if (locationDic&&![locationDic isMemberOfClass:[NSNull class]]) {
         NSArray *coordArr = [locationDic objectForKey:@"coordinates"];
@@ -75,6 +76,26 @@
     }
     return myWeibo;
 }
+
+
++ (WBComment *)parseCommentByDictionary:(NSDictionary *)dic {
+    WBComment *comment = [[WBComment alloc]init];
+    comment.createdAt = [WBJsonParser fomateString:[dic objectForKey:@"created_at"]];
+    comment.commentText = [dic objectForKey:@"text"];
+    comment.commentSource = [dic objectForKey:@"source"];
+    comment.user = [WBJsonParser parseUserInfoByDictionary:[dic objectForKey:@"user"]];
+    comment.commentMid = [dic objectForKey:@"mid"];
+    comment.commentIdStr = [dic objectForKey:@"idstr"];
+    comment.weibo = [WBJsonParser parseWeiboByDictionary:[dic objectForKey:@"status"]];
+    NSDictionary *replyCommentDic = [dic objectForKey:@"reply_comment"];
+    if (replyCommentDic && ![replyCommentDic isMemberOfClass:[NSNull class]]) {
+        comment.replyComment = [WBJsonParser parseCommentByDictionary:replyCommentDic];
+    }
+    
+    return comment;
+}
+
+
 
 //转换时间格式
 + (NSString *)fomateString:(NSString *)datestring {
