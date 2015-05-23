@@ -152,7 +152,11 @@
 //    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"dada String is :%@", str);
 <<<<<<< HEAD
+<<<<<<< HEAD
     self.userInfo = [WBJsonParser parseUserInfoWithDada:data];
+=======
+    self.userInfo = [WBJsonParser parseUserInfoByData:data];
+>>>>>>> develop
 =======
     self.userInfo = [WBJsonParser parseUserInfoByData:data];
 >>>>>>> develop

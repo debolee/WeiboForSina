@@ -3,6 +3,7 @@
    type = "1"
    version = "2.0">
 <<<<<<< HEAD
+<<<<<<< HEAD
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
@@ -21,6 +22,8 @@
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
+=======
+>>>>>>> develop
 =======
 >>>>>>> develop
 </Bucket>
