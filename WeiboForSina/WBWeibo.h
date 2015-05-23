@@ -27,6 +27,7 @@
 @property(nonatomic,copy)NSString *longitude;
 @property (nonatomic, copy)NSString *repostsCount;  //转发数
 @property (nonatomic, copy)NSString *commentsCount; //评论数
+@property (nonatomic, copy)NSString *attitudesCount; //点赞数
 
 //实现这个方法 计算微博高度
 -(float)getWeiboHeightIsDetailPage:(BOOL)isDitail;

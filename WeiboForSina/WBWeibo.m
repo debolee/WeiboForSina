@@ -20,7 +20,7 @@
         width = 300;
     }
     //计算微博文本的高度
-    CGRect frame = [self.text boundingRectWithSize:CGSizeMake(width, 999) options:NSStringDrawingUsesLineFragmentOrigin  attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil];
+    CGRect frame = [self.text boundingRectWithSize:CGSizeMake(width, 999) options:NSStringDrawingUsesLineFragmentOrigin  attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:FONTSIZE_OF_WB]} context:nil];
     //加上文本高度
     height += frame.size.height;
     //加上微博图片的高度-----------------------
