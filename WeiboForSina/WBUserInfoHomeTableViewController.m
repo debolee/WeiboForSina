@@ -7,13 +7,12 @@
 //
 
 #import "WBUserInfoHomeTableViewController.h"
-#import "WBAppDelegate.h"
-#import "WBUserInfo.h"
-#import "WBJsonParser.h"
+
 
 @interface WBUserInfoHomeTableViewController ()
-@property (nonatomic, weak)WBAppDelegate *appDelegate;
+//@property (nonatomic, weak)WBAppDelegate *appDelegate;
 @property (nonatomic, strong)WBUserInfo *userInfo;
+
 @end
 
 @implementation WBUserInfoHomeTableViewController
@@ -30,31 +29,69 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.appDelegate = (WBAppDelegate *)[UIApplication sharedApplication].delegate;
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    
+    
     self.portraitImage.layer.cornerRadius = 40;
     self.portraitImage.layer.masksToBounds = YES;
     self.portraitImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.portraitImage.layer.borderWidth = 2.0;
+
+//    self.appDelegate = (WBAppDelegate *)[UIApplication sharedApplication].delegate;
+
     
-    if (!self.appDelegate.wbToken) {
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //设置导航栏为透明
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    ((WBAppDelegate *)[UIApplication sharedApplication].delegate).wbdelegate = self;
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self login];
+//            NSLog(@"login方法执行了。。。。。。。。。");
         });
     } else {
-        
-        [WBHttpRequest requestWithAccessToken:self.appDelegate.wbToken url:@"https://api.weibo.com/2/users/show.json" httpMethod:@"GET" params:@{@"uid": self.appDelegate.wbCurrentUserID} delegate:self withTag:nil];
-        
+        [self requestUserInfo];
+//        NSLog(@"requestUserInfo方法执行了。。。。。。。。。");
     }
+    
+        NSLog(@"viewWillAppear方法执行了。。。。。。。。。");
+}
 
+
+#pragma mark 授权验证
+- (void)login {
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = WBAppRedirectURL;
+    request.scope = @"all";
+    request.userInfo = nil;
+    [WeiboSDK sendRequest:request];
+}
+
+//发送获取用户信息的请求
+- (void)requestUserInfo {
+    
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
+    
+    [WBHttpRequest requestWithAccessToken:accessToken url:@"https://api.weibo.com/2/users/show.json" httpMethod:@"GET" params:@{@"uid":userID} delegate:self withTag:nil];
+}
+
+#pragma  mark forCallBackDidReceiveWeiboResponseDelegate
+//登录完成获取token后回调此方法刷新界面
+- (void)CallBackDidReceiveWeiboResponse:(id)obj {
+    [self requestUserInfo];
 }
 
 
@@ -88,19 +125,37 @@
 - (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response {
     
     NSLog(@"NSURLResponse is 请求成功！");
+//    NSLog(@"response:%@",response);
     
 }
 
 - (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error {
-    NSLog(@"请求失败！！！！！！！！");
+    
+    NSLog(@"请求失败！！！！！！！！%ld",error.code);
+    NSLog(@"error :%@",[error localizedDescription]);
+    NSLog(@"error :%@",[error localizedFailureReason]);
+    NSLog(@"error :%@",[error localizedRecoverySuggestion]);
+    
+    NSString *message;
+    if (error.code == -1009) {
+        message = @"网络连接好像断开了！";
+    } else {
+        message = @"数据请求失败，请稍后重试！";
+    }
+    
+    UIAlertView *WBalertView = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [WBalertView show];
 }
-
 
 
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data {
 //    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"dada String is :%@", str);
+<<<<<<< HEAD
     self.userInfo = [WBJsonParser parseUserInfoWithDada:data];
+=======
+    self.userInfo = [WBJsonParser parseUserInfoByData:data];
+>>>>>>> develop
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateUI];
     });
@@ -108,15 +163,6 @@
 }
 
 
-#pragma mark 授权验证
-- (void)login {
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = WBAppRedirectURL;
-    request.scope = @"all";
-    request.userInfo = nil;
-    [WeiboSDK sendRequest:request];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -124,7 +170,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 120.0;
+    } else {
+        return 0;
+    }
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{

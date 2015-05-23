@@ -14,7 +14,7 @@
 {
     // Override point for customization after application launch.
     //打开调试选项，并像微博客户端注册AppKey
-    [WeiboSDK enableDebugMode:YES];
+//    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:WBAppKey];
     
     
@@ -30,9 +30,11 @@
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
+
+
 #pragma mark -WeiboSDKDelegate
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-
+    
     if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
         self.wbToken = [(WBAuthorizeResponse *)response accessToken];
@@ -40,14 +42,34 @@
         NSLog(@"登录成功！");
         NSLog(@"self.wbToken is:%@", self.wbToken);
         NSLog(@"self.wbCurrentUserID is:%@", self.wbCurrentUserID);
+        NSLog(@"self.wbCurrentUserID is:%@", self.wbCurrentUserID);
+        
+        //将请求到的Token信息保存起来
+        NSUserDefaults *userDf = [NSUserDefaults standardUserDefaults];
+        [userDf setObject:[(WBAuthorizeResponse *)response userID] forKey:@"userID"];
+        [userDf setObject:[(WBAuthorizeResponse *)response accessToken] forKey:@"accessToken"];
+        [userDf setObject:[(WBAuthorizeResponse *)response expirationDate] forKey:@"expirationDate"];
+        [userDf setObject:[(WBAuthorizeResponse *)response refreshToken] forKey:@"refreshToken"];
+        [userDf synchronize];
+        
+        NSLog(@"token的有效期：%@", [(WBAuthorizeResponse *)response expirationDate]);
+        
+        if ([(WBAuthorizeResponse *)response accessToken]) {
+            [self.wbdelegate CallBackDidReceiveWeiboResponse:nil];   
+        }
+
+        
+
+
+
     }
 }
 
+
+
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
-    //收到一个来自微博客户端程序的请求
+    NSLog(@"didReceiveWeiboRequest执行了。。。。。。。");
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

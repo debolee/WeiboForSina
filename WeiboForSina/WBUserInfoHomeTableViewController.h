@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WBAppDelegate.h"
+#import "WBUserInfo.h"
+#import "WBJsonParser.h"
 
-@interface WBUserInfoHomeTableViewController : UITableViewController<WBHttpRequestDelegate>
+@interface WBUserInfoHomeTableViewController : UITableViewController<WBHttpRequestDelegate,forCallBackDidReceiveWeiboResponseDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *coverImage;
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImage;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
@@ -17,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *simplyIntroduction;
 @property (weak, nonatomic) IBOutlet UILabel *school;
 @property (weak, nonatomic) IBOutlet UILabel *site;
-@property (weak, nonatomic) IBOutlet UITextView *detailIntroduction;
+@property (weak, nonatomic) IBOutlet UILabel *detailIntroduction;
+
 
 @end
