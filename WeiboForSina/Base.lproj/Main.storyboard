@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sOF-TE-xVv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sOF-TE-xVv">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--User Info Home Table View Controller-->
@@ -252,7 +254,7 @@
             </objects>
             <point key="canvasLocation" x="-601" y="-446"/>
         </scene>
-        <!--Navigation Controller - 我-->
+        <!--我-->
         <scene sceneID="7LK-2m-7ai">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kfg-kf-cXG" sceneMemberID="viewController">
@@ -531,13 +533,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQD-I3-p2S">
-                                            <rect key="frame" x="8" y="5" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="8Zu-LQ-X5N"/>
-                                                <constraint firstAttribute="height" constant="35" id="duh-GN-sQO"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-JO-O3N">
                                             <rect key="frame" x="51" y="5" width="213" height="20"/>
                                             <constraints>
@@ -561,22 +556,27 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQD-I3-p2S">
+                                            <rect key="frame" x="8" y="5" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="8Zu-LQ-X5N"/>
+                                                <constraint firstAttribute="height" constant="35" id="duh-GN-sQO"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pQD-I3-p2S" firstAttribute="leading" secondItem="Akp-XE-L5E" secondAttribute="leading" constant="8" id="30L-gT-lSn"/>
-                                        <constraint firstItem="pQD-I3-p2S" firstAttribute="top" secondItem="Akp-XE-L5E" secondAttribute="top" constant="5" id="4Ly-aR-nDA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1yL-mW-UTj" secondAttribute="trailing" constant="48" id="31V-zY-Vfq"/>
                                         <constraint firstItem="0If-k6-Vgk" firstAttribute="top" secondItem="Akp-XE-L5E" secondAttribute="top" constant="38" id="9Rg-Wk-PtZ"/>
-                                        <constraint firstItem="yJ6-JO-O3N" firstAttribute="leading" secondItem="pQD-I3-p2S" secondAttribute="trailing" constant="8" id="CR1-H6-ri8"/>
-                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="leading" secondItem="pQD-I3-p2S" secondAttribute="trailing" constant="8" id="CcQ-md-CWq"/>
-                                        <constraint firstItem="yJ6-JO-O3N" firstAttribute="top" secondItem="Akp-XE-L5E" secondAttribute="top" constant="5" id="Hj8-Tg-M3S"/>
-                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="top" secondItem="yJ6-JO-O3N" secondAttribute="bottom" constant="-5" id="NL0-Zx-hib"/>
-                                        <constraint firstAttribute="trailing" secondItem="1yL-mW-UTj" secondAttribute="trailing" constant="56" id="QLa-Nn-CbX"/>
-                                        <constraint firstAttribute="trailing" secondItem="yJ6-JO-O3N" secondAttribute="trailing" constant="56" id="Rrw-cT-Owy"/>
-                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="top" secondItem="yJ6-JO-O3N" secondAttribute="bottom" constant="-5" id="TU4-jv-VoX"/>
+                                        <constraint firstItem="yJ6-JO-O3N" firstAttribute="top" secondItem="Akp-XE-L5E" secondAttribute="topMargin" constant="-3" id="LE0-WW-Tyd"/>
                                         <constraint firstAttribute="bottom" secondItem="0If-k6-Vgk" secondAttribute="bottom" constant="6" id="WIj-Hb-MN4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yJ6-JO-O3N" secondAttribute="trailing" constant="48" id="Wbs-VT-0xV"/>
+                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="top" secondItem="yJ6-JO-O3N" secondAttribute="bottom" constant="-5" id="XhB-Ma-Lo7"/>
+                                        <constraint firstItem="pQD-I3-p2S" firstAttribute="leading" secondItem="Akp-XE-L5E" secondAttribute="leadingMargin" id="asy-a0-xDN"/>
                                         <constraint firstItem="0If-k6-Vgk" firstAttribute="leading" secondItem="Akp-XE-L5E" secondAttribute="leading" constant="51" id="cL4-zW-IqN"/>
                                         <constraint firstAttribute="trailing" secondItem="0If-k6-Vgk" secondAttribute="trailing" constant="11" id="mCJ-ll-NPd"/>
-                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="leading" secondItem="yJ6-JO-O3N" secondAttribute="trailing" constant="-213" id="sOm-Lf-Muq"/>
+                                        <constraint firstItem="yJ6-JO-O3N" firstAttribute="leading" secondItem="pQD-I3-p2S" secondAttribute="trailing" constant="8" id="pah-V1-enW"/>
+                                        <constraint firstItem="pQD-I3-p2S" firstAttribute="top" secondItem="Akp-XE-L5E" secondAttribute="topMargin" constant="-3" id="qKh-nh-39F"/>
+                                        <constraint firstItem="1yL-mW-UTj" firstAttribute="leading" secondItem="pQD-I3-p2S" secondAttribute="trailing" constant="8" id="xcy-gM-UGD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -601,7 +601,7 @@
             </objects>
             <point key="canvasLocation" x="1590" y="-2068"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="SUD-me-k5U">
             <objects>
                 <tableViewController id="AXb-ZT-F4A" sceneMemberID="viewController">
@@ -630,7 +630,7 @@
             </objects>
             <point key="canvasLocation" x="729" y="-473"/>
         </scene>
-        <!--Navigation Controller - 消息-->
+        <!--消息-->
         <scene sceneID="xjw-Cc-cZu">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Sd9-O5-IQh" sceneMemberID="viewController">
@@ -646,7 +646,7 @@
             </objects>
             <point key="canvasLocation" x="193" y="-473"/>
         </scene>
-        <!--Navigation Controller - 首页-->
+        <!--首页-->
         <scene sceneID="aQS-fc-a1w">
             <objects>
                 <navigationController definesPresentationContext="YES" id="5t2-Pi-798" sceneMemberID="viewController">

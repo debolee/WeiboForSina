@@ -34,8 +34,12 @@
 		C32CE8841B04D66700377B92 /* timeline_icon_retweet_disable@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C32CE8821B04D66700377B92 /* timeline_icon_retweet_disable@3x.png */; };
 		C32CE8871B04D6C100377B92 /* timeline_icon_comment_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C32CE8851B04D6C100377B92 /* timeline_icon_comment_disable@2x.png */; };
 		C32CE8881B04D6C100377B92 /* timeline_icon_comment_disable@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C32CE8861B04D6C100377B92 /* timeline_icon_comment_disable@3x.png */; };
+		C35239741B13166B003BB16E /* popover_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C35239731B13166B003BB16E /* popover_arrow.png */; };
+		C35239761B131675003BB16E /* popover_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C35239751B131675003BB16E /* popover_background.png */; };
 		C35475C81AF6FEC5007C43EA /* WBUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C35475C71AF6FEC5007C43EA /* WBUserInfo.m */; };
 		C35475CC1AF6FF42007C43EA /* WBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35475CB1AF6FF42007C43EA /* WBJsonParser.m */; };
+		C354ACE61B10900B008F085B /* WBDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C354ACE51B10900B008F085B /* WBDropdownMenuView.m */; };
+		C354ACE91B109058008F085B /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C354ACE81B109058008F085B /* WBTitleMenuViewController.m */; };
 		C357A5F61B05F3970012728C /* WBDetailWeiboTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */; };
 		C36CD0ED1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */; };
 		C37478FB1AFEFA0A005A405C /* WBWeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = C37478FA1AFEFA0A005A405C /* WBWeiboView.m */; };
@@ -44,8 +48,6 @@
 		C38146541B10C85300744217 /* navigationbar_arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C38146521B10C85300744217 /* navigationbar_arrow_up.png */; };
 		C38146581B10D1C600744217 /* navigationbar_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38146561B10D1C600744217 /* navigationbar_arrow_down@2x.png */; };
 		C38146591B10D1C600744217 /* navigationbar_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38146571B10D1C600744217 /* navigationbar_arrow_up@2x.png */; };
-		C381465D1B10D1C600744217 /* WBFriendGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C381465B1B10D1C600744217 /* WBFriendGroupsViewController.m */; };
-		C381465E1B10D1C600744217 /* WBFriendGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C381465C1B10D1C600744217 /* WBFriendGroupsViewController.xib */; };
 		C384785E1AF37E0600B8A8EB /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478531AF37E0600B8A8EB /* libWeiboSDK.a */; };
 		C384785F1AF37E0600B8A8EB /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C384785B1AF37E0600B8A8EB /* WeiboSDK.bundle */; };
 		C38478631AF3831300B8A8EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38478621AF3831300B8A8EB /* QuartzCore.framework */; };
@@ -121,10 +123,16 @@
 		C32CE8821B04D66700377B92 /* timeline_icon_retweet_disable@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_icon_retweet_disable@3x.png"; sourceTree = "<group>"; };
 		C32CE8851B04D6C100377B92 /* timeline_icon_comment_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_icon_comment_disable@2x.png"; sourceTree = "<group>"; };
 		C32CE8861B04D6C100377B92 /* timeline_icon_comment_disable@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_icon_comment_disable@3x.png"; sourceTree = "<group>"; };
+		C35239731B13166B003BB16E /* popover_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popover_arrow.png; sourceTree = "<group>"; };
+		C35239751B131675003BB16E /* popover_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popover_background.png; sourceTree = "<group>"; };
 		C35475C61AF6FEC5007C43EA /* WBUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserInfo.h; sourceTree = "<group>"; };
 		C35475C71AF6FEC5007C43EA /* WBUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserInfo.m; sourceTree = "<group>"; };
 		C35475CA1AF6FF42007C43EA /* WBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJsonParser.h; sourceTree = "<group>"; };
 		C35475CB1AF6FF42007C43EA /* WBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJsonParser.m; sourceTree = "<group>"; };
+		C354ACE41B10900B008F085B /* WBDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDropdownMenuView.h; sourceTree = "<group>"; };
+		C354ACE51B10900B008F085B /* WBDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDropdownMenuView.m; sourceTree = "<group>"; };
+		C354ACE71B109058008F085B /* WBTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleMenuViewController.h; sourceTree = "<group>"; };
+		C354ACE81B109058008F085B /* WBTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleMenuViewController.m; sourceTree = "<group>"; };
 		C357A5F41B05F3970012728C /* WBDetailWeiboTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailWeiboTableViewController.h; sourceTree = "<group>"; };
 		C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailWeiboTableViewController.m; sourceTree = "<group>"; };
 		C36CD0EB1B070CAD0077FE18 /* WBDetailWeiboHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailWeiboHeaderView.h; sourceTree = "<group>"; };
@@ -137,9 +145,6 @@
 		C38146521B10C85300744217 /* navigationbar_arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationbar_arrow_up.png; sourceTree = "<group>"; };
 		C38146561B10D1C600744217 /* navigationbar_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_arrow_down@2x.png"; sourceTree = "<group>"; };
 		C38146571B10D1C600744217 /* navigationbar_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_arrow_up@2x.png"; sourceTree = "<group>"; };
-		C381465A1B10D1C600744217 /* WBFriendGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBFriendGroupsViewController.h; sourceTree = "<group>"; };
-		C381465B1B10D1C600744217 /* WBFriendGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBFriendGroupsViewController.m; sourceTree = "<group>"; };
-		C381465C1B10D1C600744217 /* WBFriendGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBFriendGroupsViewController.xib; sourceTree = "<group>"; };
 		C38478531AF37E0600B8A8EB /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		C38478541AF37E0600B8A8EB /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		C38478551AF37E0600B8A8EB /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -332,9 +337,8 @@
 			children = (
 				C3E5431A1AFE2CBC004F884D /* WBHomeTableViewController.h */,
 				C3E5431B1AFE2CBC004F884D /* WBHomeTableViewController.m */,
-				C381465A1B10D1C600744217 /* WBFriendGroupsViewController.h */,
-				C381465B1B10D1C600744217 /* WBFriendGroupsViewController.m */,
-				C381465C1B10D1C600744217 /* WBFriendGroupsViewController.xib */,
+				C354ACE71B109058008F085B /* WBTitleMenuViewController.h */,
+				C354ACE81B109058008F085B /* WBTitleMenuViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -360,6 +364,8 @@
 		C38BD0D11AF3AA60004FDAB0 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C35239731B13166B003BB16E /* popover_arrow.png */,
+				C35239751B131675003BB16E /* popover_background.png */,
 				C38146511B10C85300744217 /* navigationbar_arrow_down.png */,
 				C38146521B10C85300744217 /* navigationbar_arrow_up.png */,
 				C38146561B10D1C600744217 /* navigationbar_arrow_down@2x.png */,
@@ -409,6 +415,8 @@
 				C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */,
 				C39B9B0C1B08CEC000D28DFD /* WBCommentCell.h */,
 				C39B9B0D1B08CEC000D28DFD /* WBCommentCell.m */,
+				C354ACE41B10900B008F085B /* WBDropdownMenuView.h */,
+				C354ACE51B10900B008F085B /* WBDropdownMenuView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -518,10 +526,12 @@
 				C38146531B10C85300744217 /* navigationbar_arrow_down.png in Resources */,
 				C32CE8751B04D62900377B92 /* timeline_icon_like_disable@2x.png in Resources */,
 				C38146591B10D1C600744217 /* navigationbar_arrow_up@2x.png in Resources */,
+				C35239741B13166B003BB16E /* popover_arrow.png in Resources */,
 				C3E5430D1AFE03F8004F884D /* tabbar_home@3x.png in Resources */,
 				C3E5430C1AFE03F8004F884D /* tabbar_home@2x.png in Resources */,
 				C32CE8771B04D62900377B92 /* timeline_icon_like@2x.png in Resources */,
 				C3E543141AFE0D87004F884D /* navigationbar_setting@2x.png in Resources */,
+				C35239761B131675003BB16E /* popover_background.png in Resources */,
 				C32CE86F1B04D5FA00377B92 /* timeline_icon_comment@2x.png in Resources */,
 				C32B0CE11AE7BD5B008FB262 /* Main.storyboard in Resources */,
 				C3E543041AFE02C2004F884D /* tabbar_profile@2x.png in Resources */,
@@ -541,7 +551,6 @@
 				C3E543111AFE0456004F884D /* tabbar_discover@3x.png in Resources */,
 				C3EBAE671AF7719300B3652B /* login_btn_bg_hover@2x.png in Resources */,
 				C38BD0DE1AF3B5E8004FDAB0 /* image_bg@2x.png in Resources */,
-				C381465E1B10D1C600744217 /* WBFriendGroupsViewController.xib in Resources */,
 				C3E543051AFE02C2004F884D /* tabbar_profile@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,11 +575,12 @@
 				C357A5F61B05F3970012728C /* WBDetailWeiboTableViewController.m in Sources */,
 				C36CD0ED1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m in Sources */,
 				C37478FE1AFEFA2B005A405C /* WBWeiboCell.m in Sources */,
+				C354ACE61B10900B008F085B /* WBDropdownMenuView.m in Sources */,
 				C35475CC1AF6FF42007C43EA /* WBJsonParser.m in Sources */,
 				C32B0CDA1AE7BD5B008FB262 /* main.m in Sources */,
 				C32B0CDE1AE7BD5B008FB262 /* WBAppDelegate.m in Sources */,
+				C354ACE91B109058008F085B /* WBTitleMenuViewController.m in Sources */,
 				C39B9B0B1B08C24200D28DFD /* WBComment.m in Sources */,
-				C381465D1B10D1C600744217 /* WBFriendGroupsViewController.m in Sources */,
 				C35475C81AF6FEC5007C43EA /* WBUserInfo.m in Sources */,
 				C37478FB1AFEFA0A005A405C /* WBWeiboView.m in Sources */,
 				C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */,
