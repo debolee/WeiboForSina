@@ -8,9 +8,12 @@
 
 #import "WBHomeTableViewController.h"
 #import "WBDetailWeiboTableViewController.h"
+#import "WBDropdownMenuView.h"
+#import "WBTitleMenuViewController.h"
 
-@interface WBHomeTableViewController ()
+@interface WBHomeTableViewController () <WBDropdownMenuViewDelegate,WBTitleMenuDelegate>
 @property (nonatomic, strong)NSMutableArray *weibos;
+
 @end
 
 @implementation WBHomeTableViewController
@@ -35,13 +38,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
-
-    self.navigationItem.titleView = [self titleViewWithTitleStr:@"我的分组"];
     
+    self.navigationItem.titleView = [self titleViewWithTitleStr:@"请选择"];
     
 }
 
-#pragma mark 设置导航栏中间titleView
+#pragma mark 1.设置导航栏中间titleView
 - (UIButton *) titleViewWithTitleStr:(NSString *) title {
     UIButton *titleButton = [[UIButton alloc]init];
     [titleButton setTitle:title forState:UIControlStateNormal];
@@ -52,10 +54,54 @@
     
     titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 90, 0, 0);
     titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    
     // 130这个值目前是随便写的，后面要改为根据内容自动计算长度
     titleButton.frame = CGRectMake(titleButton.frame.origin.x, titleButton.frame.origin.y, 130, 40);
+    
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     return titleButton;
 }
+
+#pragma mark 2.添加导航栏中间titleButton的点击事件,弹出下拉菜单
+- (void)titleClick:(UIButton *)titleButton {
+
+
+    WBDropdownMenuView *dropdownMenuView = [[WBDropdownMenuView alloc]init];
+    dropdownMenuView.delegate = self;
+    
+    WBTitleMenuViewController *titleMenuVC = [[WBTitleMenuViewController alloc]init];
+//    titleMenuVC.view.frame = CGRectMake(titleMenuVC.view.frame.origin.x, titleMenuVC.view.frame.origin.y, self.view.bounds.size.width / 2, self.view.bounds.size.height / 2);
+    
+    [dropdownMenuView showFrom:titleButton];
+    
+    titleMenuVC.dropdownMenuView = dropdownMenuView;
+    titleMenuVC.delegate = self;
+    dropdownMenuView.contentController = titleMenuVC;
+    
+    NSLog(@"titleClick:(UIButton *)titleButton。。。。");
+}
+
+#pragma mark 3.WBDropdownMenuViewDelegate
+- (void)dropdownMenuDidDismiss:(WBDropdownMenuView *)menu {
+    // 让指示箭头向上
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    titleButton.selected = YES;
+}
+
+#pragma mark - 4.TitleMenuDelegate
+-(void)selectAtIndexPath:(NSIndexPath *)indexPath title:(NSString *)title
+{
+    NSLog(@"indexPath = %ld", indexPath.row);
+    NSLog(@"当前选择了%@", title);
+    
+    // 修改导航栏的标题
+    [(UIButton *)self.navigationItem.titleView setTitle:title forState:UIControlStateNormal];
+    
+    // 调用根据搜索条件返回相应的微博数据
+    // ...
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
