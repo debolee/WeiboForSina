@@ -151,15 +151,9 @@
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data {
 //    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"dada String is :%@", str);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    self.userInfo = [WBJsonParser parseUserInfoWithDada:data];
-=======
+
+
     self.userInfo = [WBJsonParser parseUserInfoByData:data];
->>>>>>> develop
-=======
-    self.userInfo = [WBJsonParser parseUserInfoByData:data];
->>>>>>> develop
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateUI];
     });
