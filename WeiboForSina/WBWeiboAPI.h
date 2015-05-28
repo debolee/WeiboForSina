@@ -18,4 +18,9 @@ typedef void (^callBack) (id obj);
 
 //获取某条微博的评论列表
 - (void)requestCommentsByWeiboId:(NSString *)weiboId WithPageNumber:(NSInteger)page completionCallBack:(callBack)callBack;
+
+//获取当前登陆用户的好友分组
+- (void)requestFriendshipGroupsCompletionCallBack:(callBack)callBack;
+
+
 @end

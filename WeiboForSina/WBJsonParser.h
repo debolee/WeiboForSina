@@ -10,6 +10,7 @@
 #import "WBUserInfo.h"
 #import "WBWeibo.h"
 #import "WBComment.h"
+#import "WBGroup.h"
 
 @interface WBJsonParser : NSObject
 + (WBUserInfo *)parseUserInfoByData:(NSData *)data;
@@ -20,4 +21,7 @@
 
 //解析评论
 +(WBComment *)parseCommentByDictionary:(NSDictionary *)dic;
+
+//解析分组
++(WBGroup *)parseGroupByDictionary:(NSDictionary *)dic;
 @end

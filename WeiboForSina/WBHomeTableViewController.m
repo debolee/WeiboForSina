@@ -39,7 +39,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
     
-    self.navigationItem.titleView = [self titleViewWithTitleStr:@"请选择"];
+    
+    self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
     
 }
 
@@ -103,6 +104,7 @@
 }
 
 
+#pragma mark 获取最新微博
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
