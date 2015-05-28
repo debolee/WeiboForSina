@@ -9,7 +9,7 @@
 #import "WBTitleMenuViewController.h"
 
 @interface WBTitleMenuViewController ()
-@property (nonatomic, strong) NSMutableArray * data;
+@property (nonatomic, strong) NSMutableArray * groups;
 @end
 
 static NSString *cellID = @"SelectCell";
@@ -36,23 +36,23 @@ static NSString *cellID = @"SelectCell";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    self.data = [[NSMutableArray alloc]init];
-    [self.data addObject:@"选择1"];
-    [self.data addObject:@"选择2"];
-    [self.data addObject:@"选择3"];
-    [self.data addObject:@"选择4"];
-    [self.data addObject:@"选择5"];
-    [self.data addObject:@"选择6"];
-    [self.data addObject:@"选择7"];
-    [self.data addObject:@"选择8"];
-    [self.data addObject:@"选择9"];
-    [self.data addObject:@"选择10"];
+    self.groups = [[NSMutableArray alloc]init];
+
     
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [self.tableView reloadData];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
+        [[WBWeiboAPI shareWeiboApi] requestFriendshipGroupsCompletionCallBack:^(id obj) {
+            self.groups = obj;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }];
+    };
+    
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -65,14 +65,15 @@ static NSString *cellID = @"SelectCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.data.count;
+    return self.groups.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
+    WBGroup *group = [self.groups objectAtIndex:indexPath.row];
+    cell.textLabel.text = group.groupName;
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
@@ -83,7 +84,8 @@ static NSString *cellID = @"SelectCell";
         [self.dropdownMenuView dismiss];
     }
     if (self.delegate) {
-        [self.delegate selectAtIndexPath:indexPath title:self.data[indexPath.row]];
+        WBGroup *group = self.groups[indexPath.row];
+        [self.delegate selectAtIndexPath:indexPath title:group.groupName];
     }
 }
 

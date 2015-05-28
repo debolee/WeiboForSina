@@ -59,13 +59,32 @@ static WBWeiboAPI *weiboApi;
 }
 
 
+//获取当前登陆用户的好友分组
+- (void)requestFriendshipGroupsCompletionCallBack:(callBack)callBack {
+    [self getByApiName:@"friendships/groups.json" andParams:nil andCallBack:^(id obj) {
+        NSArray *groupsDic = [(NSDictionary *)obj objectForKey:@"lists"];
+        NSMutableArray *groups = [[NSMutableArray alloc]init];
+        for (NSDictionary *groupDic in groupsDic) {
+            WBGroup *group = [WBJsonParser parseGroupByDictionary:groupDic];
+            [groups addObject:group];
+        }
+        callBack(groups);
+    }];
+    
+}
+
 -(void)getByApiName:(NSString *)apiName andParams:(NSString *)params andCallBack:(callBack)callback {
     
     NSString *apiPath = [NSString stringWithFormat:@"https://api.weibo.com/2/%@", apiName];
     NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-    
-    NSString *normalParams = [NSString stringWithFormat:@"access_token=%@",accessToken];
-    apiPath = [apiPath stringByAppendingFormat:@"?%@&%@", normalParams,params];
+    if (params) {
+        NSString *normalParams = [NSString stringWithFormat:@"access_token=%@",accessToken];
+        apiPath = [apiPath stringByAppendingFormat:@"?%@&%@", normalParams,params];
+    } else {
+        NSString *normalParams = [NSString stringWithFormat:@"access_token=%@",accessToken];
+        apiPath = [apiPath stringByAppendingFormat:@"?%@", normalParams];
+    }
+
     
     NSLog(@"请求地址为： %@", apiPath);
     

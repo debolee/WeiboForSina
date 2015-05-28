@@ -96,7 +96,16 @@
 }
 
 
++ (WBGroup *)parseGroupByDictionary:(NSDictionary *)dic {
+    WBGroup *group = [[WBGroup alloc]init];
+    group.groupID = [dic objectForKey:@"idstr"];
+    group.groupName = [dic objectForKey:@"name"];
+    group.groupMemberCount = [dic objectForKey:@"member_count"];
+    
+    return group;
+}
 
+#pragma mark 转换时间格式
 //转换时间格式
 + (NSString *)fomateString:(NSString *)datestring {
     NSString *formatString = @"E MMM d HH:mm:ss Z yyyy";

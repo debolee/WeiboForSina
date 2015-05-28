@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WBGroup.h"
+#import "WBWeiboAPI.h"
 #import "WBDropdownMenuView.h"
 
 @protocol WBTitleMenuDelegate <NSObject>
