@@ -73,6 +73,26 @@ static WBWeiboAPI *weiboApi;
     
 }
 
+//获取系统推荐的热门用户列表
+- (void)requestHotUsersWithCategory:(NSString *)category CompletionCallBack:(callBack)callBack {
+    NSString *params = [NSString stringWithFormat:@"id=%@" ,category];
+    [self getByApiName:@"suggestions/users/hot.json" andParams:params andCallBack:^(id obj) {
+        NSArray *usersDic = obj;
+        NSMutableArray *users = [[NSMutableArray alloc]init];
+        for (NSDictionary *userDic in usersDic) {
+            WBUserInfo *user = [WBJsonParser parseUserInfoByDictionary:userDic];
+            [users addObject:user];
+        }
+        callBack(users);
+    }];
+}
+
+
+
+
+
+
+
 -(void)getByApiName:(NSString *)apiName andParams:(NSString *)params andCallBack:(callBack)callback {
     
     NSString *apiPath = [NSString stringWithFormat:@"https://api.weibo.com/2/%@", apiName];
@@ -92,8 +112,8 @@ static WBWeiboAPI *weiboApi;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        callback(dic);
+        id receiveData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        callback(receiveData);
     }];
     
     [task resume];
@@ -114,8 +134,8 @@ static WBWeiboAPI *weiboApi;
     [request setHTTPBody:[allParams dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        callback(dic);
+        id  receiveData= [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        callback(receiveData);
     }];
     [task resume];
 }

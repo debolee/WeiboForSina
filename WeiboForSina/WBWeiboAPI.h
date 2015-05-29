@@ -22,5 +22,8 @@ typedef void (^callBack) (id obj);
 //获取当前登陆用户的好友分组
 - (void)requestFriendshipGroupsCompletionCallBack:(callBack)callBack;
 
+//获取系统推荐的热门用户列表
+- (void)requestHotUsersWithCategory:(NSString *)category CompletionCallBack:(callBack)callBack;
+
 
 @end

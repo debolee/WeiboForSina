@@ -41,7 +41,10 @@ static NSString *cellID = @"SelectCell";
     
 }
 
+#pragma mark 获取当前登陆用户的好友分组 高级接口 无法请求到数据
+#warning 获取当前登陆用户的好友分组,高级接口,无法请求到数据
 - (void)viewWillAppear:(BOOL)animated {
+    
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
         [[WBWeiboAPI shareWeiboApi] requestFriendshipGroupsCompletionCallBack:^(id obj) {
             self.groups = obj;
@@ -50,8 +53,6 @@ static NSString *cellID = @"SelectCell";
             });
         }];
     };
-    
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +66,9 @@ static NSString *cellID = @"SelectCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (self.groups.count ==0 || self.groups ==nil) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
     return self.groups.count;
 }
 
@@ -75,6 +79,8 @@ static NSString *cellID = @"SelectCell";
     WBGroup *group = [self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = group.groupName;
     cell.backgroundColor = [UIColor clearColor];
+    cell.separatorInset = UIEdgeInsetsMake(cell.separatorInset.top, 0, cell.separatorInset.bottom, cell.separatorInset.right);
+    
     return cell;
 }
 
