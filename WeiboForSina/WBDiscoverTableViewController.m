@@ -1,18 +1,18 @@
 //
-//  WBMessageTableViewController.m
+//  WBDiscoverTableViewController.m
 //  WeiboForSina
 //
-//  Created by BOBO on 15/5/29.
+//  Created by BOBO on 15/6/3.
 //  Copyright (c) 2015年 BobooO. All rights reserved.
 //
 
-#import "WBMessageTableViewController.h"
+#import "WBDiscoverTableViewController.h"
 
-@interface WBMessageTableViewController ()
-@property (nonatomic, strong) NSMutableArray *messages;
+@interface WBDiscoverTableViewController ()
+
 @end
 
-@implementation WBMessageTableViewController
+@implementation WBDiscoverTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,15 +22,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-#warning 微博消息接口需要申请，暂未实现，模拟对话列表中的用户信息
-    UIImage *image = [UIImage imageNamed:@"icon"];
-    
-    NSDictionary *message = [[NSDictionary alloc]initWithObjectsAndKeys:@"今天好像要下大暴雨哦，你带伞了吗?", @"message",@"微博客服",@"nickName", image,@"image",nil];
-    
-    self.messages = [NSMutableArray array];
-    [self.messages addObject:message];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,49 +31,27 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.messages.count + 4;
+    return 0;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    UITableViewCell *cell = nil;
-    switch (indexPath.row) {
-        case 0:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"messageAtCell" forIndexPath:indexPath];
-        }
-            break;
-        case 1:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"messageCommentCell" forIndexPath:indexPath];
-        }
-            break;
-        case 2:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"messageGoodCell" forIndexPath:indexPath];
-        }
-            break;
-        case 3:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"messageBoxCell" forIndexPath:indexPath];
-        }
-            break;
-        default:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"chatListCell" forIndexPath:indexPath];
-            WBChatListCell *chatListCell = (WBChatListCell *)cell;
-            chatListCell.message = self.messages[indexPath.row - 4];
-        }
-            break;
-    }
+    // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -117,11 +86,6 @@
     return YES;
 }
 */
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 60.0;
-}
 
 /*
 #pragma mark - Navigation
