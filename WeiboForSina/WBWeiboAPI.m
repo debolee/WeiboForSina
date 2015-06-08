@@ -87,9 +87,47 @@ static WBWeiboAPI *weiboApi;
     }];
 }
 
+//搜索用户时的联想搜索建议
+- (void)searchSuggestionsUsersWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack {
+    NSString *params = [NSString stringWithFormat:@"q=%@&count=%d",string, count];
+    [self getByApiName:@"search/suggestions/users.json" andParams:params andCallBack:^(id obj) {
+        NSArray *suggestionsDic = obj;
+        NSMutableArray *suggestions = [[NSMutableArray alloc]init];
+        for (NSDictionary *suggestionDic in suggestionsDic) {
+            WBSearchSuggestionsOfUsers *suggestion = [WBJsonParser parseSuggestionOfUserByDictionary:suggestionDic];
+            [suggestions addObject:suggestion];
+        }
+        callBack(suggestions);
+    }];
+}
 
+//搜索学校时的联想搜索建议
+- (void)searchSuggestionsSchoolsWithString:(NSString *)string AndCount:(int)count AndType:(int)type CompletionCallBack:(callBack)callBack {
+    NSString *params = [NSString stringWithFormat:@"q=%@&count=%d&type=%d",string, count,type];
+    [self getByApiName:@"search/suggestions/schools.json" andParams:params andCallBack:^(id obj) {
+        NSArray *suggestionsDic = obj;
+        NSMutableArray *suggestions = [[NSMutableArray alloc]init];
+        for (NSDictionary *suggestionDic in suggestionsDic) {
+            WBSearchSuggestionsOfSchools *suggestion = [WBJsonParser parseSuggestionOfSchoolByDictionary:suggestionDic];
+            [suggestions addObject:suggestion];
+        }
+        callBack(suggestions);
+    }];
+}
 
-
+//搜索公司时的联想搜索建议
+- (void)searchSuggestionsCompaniesWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack {
+    NSString *params = [NSString stringWithFormat:@"q=%@&count=%d",string, count];
+    [self getByApiName:@"search/suggestions/companies.json" andParams:params andCallBack:^(id obj) {
+        NSArray *suggestionsDic = obj;
+        NSMutableArray *suggestions = [[NSMutableArray alloc]init];
+        for (NSDictionary *suggestionDic in suggestionsDic) {
+            WBSearchSuggestionsOfCompanies *suggestion = [WBJsonParser parseSuggestionOfCompanyByDictionary:suggestionDic];
+            [suggestions addObject:suggestion];
+        }
+        callBack(suggestions);
+    }];
+}
 
 
 
@@ -100,15 +138,18 @@ static WBWeiboAPI *weiboApi;
     if (params) {
         NSString *normalParams = [NSString stringWithFormat:@"access_token=%@",accessToken];
         apiPath = [apiPath stringByAppendingFormat:@"?%@&%@", normalParams,params];
+        apiPath = [apiPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     } else {
         NSString *normalParams = [NSString stringWithFormat:@"access_token=%@",accessToken];
         apiPath = [apiPath stringByAppendingFormat:@"?%@", normalParams];
+        apiPath = [apiPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
 
     
     NSLog(@"请求地址为： %@", apiPath);
     
     NSURL *url = [NSURL URLWithString:apiPath];
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

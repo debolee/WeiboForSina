@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WBChatListCell.h"
 
 @interface WBMessageTableViewController : UITableViewController
 
