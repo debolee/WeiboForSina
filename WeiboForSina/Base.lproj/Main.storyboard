@@ -797,7 +797,7 @@
             </objects>
             <point key="canvasLocation" x="729" y="-473"/>
         </scene>
-        <!--Discover Table View Controller-->
+        <!--发现-->
         <scene sceneID="nh5-gq-XgP">
             <objects>
                 <tableViewController id="enm-IY-o8e" customClass="WBDiscoverTableViewController" sceneMemberID="viewController">
@@ -805,10 +805,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="5vI-df-tft">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="5vI-df-tft">
+                            <rect key="frame" x="0.0" y="64" width="320" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>用户</string>
+                                <string>学校</string>
+                                <string>公司</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="enm-IY-o8e" id="1dn-R1-MB8"/>
                             </connections>
@@ -816,7 +821,7 @@
                         <sections>
                             <tableViewSection id="R7m-XE-oEL">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="axF-Gl-eX8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hotTopicsCell1" id="axF-Gl-eX8">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axF-Gl-eX8" id="r4M-FB-y1u">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -838,7 +843,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T75-Ar-zAv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hotTopicsCell2" id="T75-Ar-zAv">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T75-Ar-zAv" id="SaB-pY-ZNg">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -864,7 +869,7 @@
                             </tableViewSection>
                             <tableViewSection id="lDf-7w-rLi">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="AkP-cL-gt7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="nearbyPeopleCell" id="AkP-cL-gt7">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AkP-cL-gt7" id="8kZ-dy-xpf">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -881,7 +886,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="lZW-GA-X1d">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="nearbyWeiboCell" id="lZW-GA-X1d">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZW-GA-X1d" id="ZXi-2s-vRz">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -906,10 +911,13 @@
                             <outlet property="delegate" destination="enm-IY-o8e" id="EDP-ig-keg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JKA-ml-f3t">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="发现" id="JKA-ml-f3t"/>
                     <connections>
+                        <outlet property="hotTopicsCell1" destination="axF-Gl-eX8" id="Z6U-H4-CJm"/>
+                        <outlet property="hotTopicsCell2" destination="T75-Ar-zAv" id="Z59-6G-SJ9"/>
+                        <outlet property="mySearchbar" destination="5vI-df-tft" id="AhU-EF-PJ4"/>
+                        <outlet property="nearbyPeopleCell" destination="AkP-cL-gt7" id="v69-CG-ePm"/>
+                        <outlet property="nearbyWeiboCell" destination="lZW-GA-X1d" id="Jeu-Uk-1Bp"/>
                         <outlet property="searchDisplayController" destination="KrK-kM-DCx" id="PSQ-MV-bhM"/>
                     </connections>
                 </tableViewController>

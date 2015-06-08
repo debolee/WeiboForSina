@@ -11,6 +11,9 @@
 #import "WBWeibo.h"
 #import "WBComment.h"
 #import "WBGroup.h"
+#import "WBSearchSuggestionsOfUsers.h"
+#import "WBSearchSuggestionsOfSchools.h"
+#import "WBSearchSuggestionsOfCompanies.h"
 
 @interface WBJsonParser : NSObject
 + (WBUserInfo *)parseUserInfoByData:(NSData *)data;
@@ -24,4 +27,14 @@
 
 //解析分组
 +(WBGroup *)parseGroupByDictionary:(NSDictionary *)dic;
+
+//解析搜索用户时的联想搜索建议
++(WBSearchSuggestionsOfUsers *)parseSuggestionOfUserByDictionary:(NSDictionary *)dic;
+
+//解析搜索学校时的联想搜索建议
++(WBSearchSuggestionsOfSchools *)parseSuggestionOfSchoolByDictionary:(NSDictionary *)dic;
+
+//解析搜索公司时的联想搜索建议
++(WBSearchSuggestionsOfCompanies *)parseSuggestionOfCompanyByDictionary:(NSDictionary *)dic;
+
 @end
