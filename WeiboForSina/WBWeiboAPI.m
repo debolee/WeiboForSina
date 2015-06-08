@@ -91,13 +91,15 @@ static WBWeiboAPI *weiboApi;
 - (void)searchSuggestionsUsersWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack {
     NSString *params = [NSString stringWithFormat:@"q=%@&count=%d",string, count];
     [self getByApiName:@"search/suggestions/users.json" andParams:params andCallBack:^(id obj) {
-        NSArray *suggestionsDic = obj;
-        NSMutableArray *suggestions = [[NSMutableArray alloc]init];
-        for (NSDictionary *suggestionDic in suggestionsDic) {
-            WBSearchSuggestionsOfUsers *suggestion = [WBJsonParser parseSuggestionOfUserByDictionary:suggestionDic];
-            [suggestions addObject:suggestion];
-        }
-        callBack(suggestions);
+            NSArray *suggestionsDic = obj;
+            NSMutableArray *suggestions = [[NSMutableArray alloc]init];
+            for (NSDictionary *suggestionDic in suggestionsDic) {
+                WBSearchSuggestionsOfUsers *suggestion = [WBJsonParser parseSuggestionOfUserByDictionary:suggestionDic];
+                if (suggestion) {
+                    [suggestions addObject:suggestion];
+                }
+            }
+            callBack(suggestions);
     }];
 }
 
@@ -105,11 +107,15 @@ static WBWeiboAPI *weiboApi;
 - (void)searchSuggestionsSchoolsWithString:(NSString *)string AndCount:(int)count AndType:(int)type CompletionCallBack:(callBack)callBack {
     NSString *params = [NSString stringWithFormat:@"q=%@&count=%d&type=%d",string, count,type];
     [self getByApiName:@"search/suggestions/schools.json" andParams:params andCallBack:^(id obj) {
+        
         NSArray *suggestionsDic = obj;
         NSMutableArray *suggestions = [[NSMutableArray alloc]init];
         for (NSDictionary *suggestionDic in suggestionsDic) {
             WBSearchSuggestionsOfSchools *suggestion = [WBJsonParser parseSuggestionOfSchoolByDictionary:suggestionDic];
-            [suggestions addObject:suggestion];
+            if (suggestion) {
+                [suggestions addObject:suggestion];
+            }
+            
         }
         callBack(suggestions);
     }];
@@ -123,7 +129,9 @@ static WBWeiboAPI *weiboApi;
         NSMutableArray *suggestions = [[NSMutableArray alloc]init];
         for (NSDictionary *suggestionDic in suggestionsDic) {
             WBSearchSuggestionsOfCompanies *suggestion = [WBJsonParser parseSuggestionOfCompanyByDictionary:suggestionDic];
-            [suggestions addObject:suggestion];
+            if (suggestion) {
+                [suggestions addObject:suggestion];
+            }
         }
         callBack(suggestions);
     }];

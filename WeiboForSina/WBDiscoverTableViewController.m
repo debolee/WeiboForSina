@@ -11,10 +11,6 @@
 @interface WBDiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchbar;
 @property (nonatomic, strong) NSArray *results;
-@property (weak, nonatomic) IBOutlet UITableViewCell *hotTopicsCell1;
-@property (weak, nonatomic) IBOutlet UITableViewCell *hotTopicsCell2;
-@property (weak, nonatomic) IBOutlet UITableViewCell *nearbyPeopleCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *nearbyWeiboCell;
 @end
 
 @implementation WBDiscoverTableViewController
@@ -28,8 +24,17 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    static NSString *cellID = @"resultCell";
-    [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"WBsearchSuggestionCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"WBsearchSuggestionCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"hotTopicsCell1" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"hotTopicsCell1"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"hotTopicsCell2" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"hotTopicsCell2"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"nearbyPeopleCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"nearbyPeopleCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"nearbyWeiboCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"nearbyWeiboCell"];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,7 +49,7 @@
         case 0:
             //搜用户
             if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-                [[WBWeiboAPI shareWeiboApi] searchSuggestionsUsersWithString:self.mySearchbar.text AndCount:2 CompletionCallBack:^(id obj) {
+                [[WBWeiboAPI shareWeiboApi] searchSuggestionsUsersWithString:self.mySearchbar.text AndCount:20 CompletionCallBack:^(id obj) {
                     self.results = obj;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"self.results.count :%ld", self.results.count);
@@ -57,7 +62,7 @@
         case 1:
             //搜学校
             if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-                [[WBWeiboAPI shareWeiboApi] searchSuggestionsSchoolsWithString:self.mySearchbar.text AndCount:2 AndType:0 CompletionCallBack:^(id obj) {
+                [[WBWeiboAPI shareWeiboApi] searchSuggestionsSchoolsWithString:self.mySearchbar.text AndCount:20 AndType:0 CompletionCallBack:^(id obj) {
                     self.results = obj;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"self.results.count :%ld", self.results.count);
@@ -69,7 +74,7 @@
         case 2:
             //搜公司
             if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-                [[WBWeiboAPI shareWeiboApi] searchSuggestionsCompaniesWithString:self.mySearchbar.text AndCount:2 CompletionCallBack:^(id obj) {
+                [[WBWeiboAPI shareWeiboApi] searchSuggestionsCompaniesWithString:self.mySearchbar.text AndCount:20 CompletionCallBack:^(id obj) {
                     self.results = obj;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"self.results.count :%ld", self.results.count);
@@ -150,32 +155,36 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (tableView == self.tableView) {
-        
+    
         if (indexPath.section == 0 && indexPath.row == 0) {
-            return self.hotTopicsCell1;
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hotTopicsCell1" forIndexPath:indexPath];
+            return cell;
         } else if (indexPath.section == 0 && indexPath.row == 1) {
-            return self.hotTopicsCell2;
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hotTopicsCell2" forIndexPath:indexPath];
+            return cell;
         } else if (indexPath.section == 1 && indexPath.row == 0) {
-            return self.nearbyPeopleCell;
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyPeopleCell" forIndexPath:indexPath];
+            return cell;
         } else {
-            return self.nearbyWeiboCell;
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyWeiboCell" forIndexPath:indexPath];
+            return cell;
         }
         
     } else if (tableView == self.searchDisplayController.searchResultsTableView) {
 
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
+        WBsearchSuggestionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WBsearchSuggestionCell" forIndexPath:indexPath];
         id result = self.results[indexPath.row];
+        
         if ([result isMemberOfClass:[WBSearchSuggestionsOfUsers class]]) {
             WBSearchSuggestionsOfUsers * suggestion = result;
-            cell.textLabel.text = suggestion.nickName;
-            cell.detailTextLabel.text = suggestion.followersCount;
+            cell.suggestion.text = suggestion.nickName;
         } else if ([result isMemberOfClass:[WBSearchSuggestionsOfSchools class]]) {
             WBSearchSuggestionsOfSchools *suggestion = result;
-            cell.textLabel.text = suggestion.schoolName;
-            cell.detailTextLabel.text = suggestion.location;
+            cell.suggestion.text = suggestion.schoolName;
+            
         } else {
             WBSearchSuggestionsOfCompanies *suggestion = result;
-            cell.textLabel.text = suggestion.suggestion;
+            cell.suggestion.text = suggestion.suggestion;
         }
         return cell;
     } else
@@ -187,13 +196,15 @@
         return 10;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     UIViewController *vc = [[UIViewController alloc]init];
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
     
-    }
+}
+
 
 
 /*

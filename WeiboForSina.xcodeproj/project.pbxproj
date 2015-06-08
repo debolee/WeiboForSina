@@ -50,6 +50,12 @@
 		C354ACE61B10900B008F085B /* WBDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C354ACE51B10900B008F085B /* WBDropdownMenuView.m */; };
 		C354ACE91B109058008F085B /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C354ACE81B109058008F085B /* WBTitleMenuViewController.m */; };
 		C357A5F61B05F3970012728C /* WBDetailWeiboTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */; };
+		C36977301B252AE100DE97DD /* hotTopicsCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C369772F1B252AE100DE97DD /* hotTopicsCell1.xib */; };
+		C36977321B252BBB00DE97DD /* hotTopicsCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36977311B252BBB00DE97DD /* hotTopicsCell2.xib */; };
+		C36977341B252BEE00DE97DD /* nearbyPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36977331B252BEE00DE97DD /* nearbyPeopleCell.xib */; };
+		C36977361B252C1500DE97DD /* nearbyWeiboCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36977351B252C1500DE97DD /* nearbyWeiboCell.xib */; };
+		C369773C1B25433600DE97DD /* WBsearchSuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C369773A1B25433600DE97DD /* WBsearchSuggestionCell.m */; };
+		C369773D1B25433600DE97DD /* WBsearchSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C369773B1B25433600DE97DD /* WBsearchSuggestionCell.xib */; };
 		C36CD0ED1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */; };
 		C37478FB1AFEFA0A005A405C /* WBWeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = C37478FA1AFEFA0A005A405C /* WBWeiboView.m */; };
 		C37478FE1AFEFA2B005A405C /* WBWeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37478FD1AFEFA2B005A405C /* WBWeiboCell.m */; };
@@ -175,6 +181,13 @@
 		C354ACE81B109058008F085B /* WBTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleMenuViewController.m; sourceTree = "<group>"; };
 		C357A5F41B05F3970012728C /* WBDetailWeiboTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailWeiboTableViewController.h; sourceTree = "<group>"; };
 		C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailWeiboTableViewController.m; sourceTree = "<group>"; };
+		C369772F1B252AE100DE97DD /* hotTopicsCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hotTopicsCell1.xib; sourceTree = "<group>"; };
+		C36977311B252BBB00DE97DD /* hotTopicsCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hotTopicsCell2.xib; sourceTree = "<group>"; };
+		C36977331B252BEE00DE97DD /* nearbyPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nearbyPeopleCell.xib; sourceTree = "<group>"; };
+		C36977351B252C1500DE97DD /* nearbyWeiboCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nearbyWeiboCell.xib; sourceTree = "<group>"; };
+		C36977391B25433600DE97DD /* WBsearchSuggestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBsearchSuggestionCell.h; sourceTree = "<group>"; };
+		C369773A1B25433600DE97DD /* WBsearchSuggestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBsearchSuggestionCell.m; sourceTree = "<group>"; };
+		C369773B1B25433600DE97DD /* WBsearchSuggestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBsearchSuggestionCell.xib; sourceTree = "<group>"; };
 		C36CD0EB1B070CAD0077FE18 /* WBDetailWeiboHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailWeiboHeaderView.h; sourceTree = "<group>"; };
 		C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailWeiboHeaderView.m; sourceTree = "<group>"; };
 		C37478F91AFEFA0A005A405C /* WBWeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBWeiboView.h; sourceTree = "<group>"; };
@@ -521,6 +534,9 @@
 				C394B7B51B18542C00D85A13 /* WBUserInfoCell.m */,
 				C3C117A11B1998E700803F7F /* WBChatListCell.h */,
 				C3C117A21B1998E700803F7F /* WBChatListCell.m */,
+				C36977391B25433600DE97DD /* WBsearchSuggestionCell.h */,
+				C369773A1B25433600DE97DD /* WBsearchSuggestionCell.m */,
+				C369773B1B25433600DE97DD /* WBsearchSuggestionCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -547,6 +563,10 @@
 			children = (
 				C38CBACD1B1E40AC009E4AA4 /* WBDiscoverTableViewController.h */,
 				C38CBACE1B1E40AC009E4AA4 /* WBDiscoverTableViewController.m */,
+				C369772F1B252AE100DE97DD /* hotTopicsCell1.xib */,
+				C36977311B252BBB00DE97DD /* hotTopicsCell2.xib */,
+				C36977331B252BEE00DE97DD /* nearbyPeopleCell.xib */,
+				C36977351B252C1500DE97DD /* nearbyWeiboCell.xib */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -656,7 +676,9 @@
 				C31EC33B1B17197D00256DB2 /* navigationbar_friendsearch@2x.png in Resources */,
 				C3E5430C1AFE03F8004F884D /* tabbar_home@2x.png in Resources */,
 				C32CE8771B04D62900377B92 /* timeline_icon_like@2x.png in Resources */,
+				C36977361B252C1500DE97DD /* nearbyWeiboCell.xib in Resources */,
 				C3E543141AFE0D87004F884D /* navigationbar_setting@2x.png in Resources */,
+				C36977301B252AE100DE97DD /* hotTopicsCell1.xib in Resources */,
 				C35239761B131675003BB16E /* popover_background.png in Resources */,
 				C394B7C01B1862EA00D85A13 /* messagescenter_at@2x.png in Resources */,
 				C394B7C21B1862EA00D85A13 /* messagescenter_comments@2x.png in Resources */,
@@ -670,15 +692,18 @@
 				C3E543151AFE0D87004F884D /* navigationbar_setting@3x.png in Resources */,
 				C394B7C11B1862EA00D85A13 /* messagescenter_at@3x.png in Resources */,
 				C31EC3391B17197D00256DB2 /* navigationbar_friendsearch_highlighted@2x.png in Resources */,
+				C36977341B252BEE00DE97DD /* nearbyPeopleCell.xib in Resources */,
 				C32CE87F1B04D65A00377B92 /* timeline_icon_unlike@2x.png in Resources */,
 				C394B7C51B1862EA00D85A13 /* messagescenter_good@3x.png in Resources */,
 				C3B7DA291AFDEA930045332B /* top_bg@2x.png in Resources */,
 				C32CE8871B04D6C100377B92 /* timeline_icon_comment_disable@2x.png in Resources */,
 				C3E543091AFE03C4004F884D /* tabbar_message_center@3x.png in Resources */,
 				C3CE56391B15C5570030CF52 /* icon@3x.png in Resources */,
+				C36977321B252BBB00DE97DD /* hotTopicsCell2.xib in Resources */,
 				C32CE87C1B04D64900377B92 /* timeline_icon_retweet@3x.png in Resources */,
 				C32CE87B1B04D64900377B92 /* timeline_icon_retweet@2x.png in Resources */,
 				C32CE8781B04D62900377B92 /* timeline_icon_like@3x.png in Resources */,
+				C369773D1B25433600DE97DD /* WBsearchSuggestionCell.xib in Resources */,
 				C3CE56381B15C5570030CF52 /* icon@2x.png in Resources */,
 				C38146581B10D1C600744217 /* navigationbar_arrow_down@2x.png in Resources */,
 				C394B7C41B1862EA00D85A13 /* messagescenter_good@2x.png in Resources */,
@@ -728,6 +753,7 @@
 				C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */,
 				C3E5431F1AFE2EC6004F884D /* WBWeibo.m in Sources */,
 				C3E5431C1AFE2CBC004F884D /* WBHomeTableViewController.m in Sources */,
+				C369773C1B25433600DE97DD /* WBsearchSuggestionCell.m in Sources */,
 				C31EC3341B170E3800256DB2 /* WBGroup.m in Sources */,
 				C38CBACF1B1E40AC009E4AA4 /* WBDiscoverTableViewController.m in Sources */,
 				C39B9B0E1B08CEC000D28DFD /* WBCommentCell.m in Sources */,

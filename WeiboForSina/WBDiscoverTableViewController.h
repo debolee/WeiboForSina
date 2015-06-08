@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WBWeiboAPI.h"
 #import "WBSearchSuggestionsOfUsers.h"
+#import "WBsearchSuggestionCell.h"
 
 @interface WBDiscoverTableViewController : UITableViewController<UISearchDisplayDelegate,UISearchBarDelegate>
 

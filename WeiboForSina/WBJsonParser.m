@@ -107,29 +107,41 @@
 
 //解析搜索用户时的联想搜索建议
 + (WBSearchSuggestionsOfUsers *)parseSuggestionOfUserByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfUsers *suggestion = [[WBSearchSuggestionsOfUsers alloc]init];
-    suggestion.nickName = [dic objectForKey:@"screen_name"];
-    suggestion.followersCount = [dic objectForKey:@"followers_count"];
-    suggestion.userID = [dic objectForKey:@"uid"];
     
-    return suggestion;
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        WBSearchSuggestionsOfUsers *suggestion = [[WBSearchSuggestionsOfUsers alloc]init];
+        suggestion.nickName = [dic objectForKey:@"screen_name"];
+        suggestion.followersCount = [dic objectForKey:@"followers_count"];
+        suggestion.userID = [dic objectForKey:@"uid"];
+        return suggestion;
+    } else
+        return nil;
+
 }
 
 //解析搜索学校时的联想搜索建议
 +(WBSearchSuggestionsOfSchools *)parseSuggestionOfSchoolByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfSchools *school = [[WBSearchSuggestionsOfSchools alloc]init];
-    school.schoolName = [dic objectForKey:@"school_name"];
-    school.location = [dic objectForKey:@"location"];
-    school.schoolID = [dic objectForKey:@"id"];
-    school.type = [dic objectForKey:@"type"];
-    return school;
+
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        WBSearchSuggestionsOfSchools *school = [[WBSearchSuggestionsOfSchools alloc]init];
+        school.schoolName = [dic objectForKey:@"school_name"];
+        school.location = [dic objectForKey:@"location"];
+        school.schoolID = [dic objectForKey:@"id"];
+        school.type = [dic objectForKey:@"type"];
+        return school;
+    } else
+        return nil;
+
 }
 
 //解析搜索公司时的联想搜索建议
 +(WBSearchSuggestionsOfCompanies *)parseSuggestionOfCompanyByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfCompanies *company = [[WBSearchSuggestionsOfCompanies alloc]init];
-    company.suggestion = [dic objectForKey:@"suggestion"];
-    return company;
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        WBSearchSuggestionsOfCompanies *company = [[WBSearchSuggestionsOfCompanies alloc]init];
+        company.suggestion = [dic objectForKey:@"suggestion"];
+        return company;
+    } else
+        return nil;
 }
 
 #pragma mark 转换时间格式
