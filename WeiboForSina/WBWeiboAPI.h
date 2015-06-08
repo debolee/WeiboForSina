@@ -25,5 +25,13 @@ typedef void (^callBack) (id obj);
 //获取系统推荐的热门用户列表
 - (void)requestHotUsersWithCategory:(NSString *)category CompletionCallBack:(callBack)callBack;
 
+//搜索用户时的联想搜索建议
+- (void)searchSuggestionsUsersWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack;
+
+//搜索学校时的联想搜索建议
+- (void)searchSuggestionsSchoolsWithString:(NSString *)string AndCount:(int)count AndType:(int)type CompletionCallBack:(callBack)callBack;
+
+//搜索公司时的联想搜索建议
+- (void)searchSuggestionsCompaniesWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack;
 
 @end
