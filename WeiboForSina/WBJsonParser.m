@@ -105,33 +105,6 @@
     return group;
 }
 
-//解析搜索用户时的联想搜索建议
-+ (WBSearchSuggestionsOfUsers *)parseSuggestionOfUserByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfUsers *suggestion = [[WBSearchSuggestionsOfUsers alloc]init];
-    suggestion.nickName = [dic objectForKey:@"screen_name"];
-    suggestion.followersCount = [dic objectForKey:@"followers_count"];
-    suggestion.userID = [dic objectForKey:@"uid"];
-    
-    return suggestion;
-}
-
-//解析搜索学校时的联想搜索建议
-+(WBSearchSuggestionsOfSchools *)parseSuggestionOfSchoolByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfSchools *school = [[WBSearchSuggestionsOfSchools alloc]init];
-    school.schoolName = [dic objectForKey:@"school_name"];
-    school.location = [dic objectForKey:@"location"];
-    school.schoolID = [dic objectForKey:@"id"];
-    school.type = [dic objectForKey:@"type"];
-    return school;
-}
-
-//解析搜索公司时的联想搜索建议
-+(WBSearchSuggestionsOfCompanies *)parseSuggestionOfCompanyByDictionary:(NSDictionary *)dic {
-    WBSearchSuggestionsOfCompanies *company = [[WBSearchSuggestionsOfCompanies alloc]init];
-    company.suggestion = [dic objectForKey:@"suggestion"];
-    return company;
-}
-
 #pragma mark 转换时间格式
 //转换时间格式
 + (NSString *)fomateString:(NSString *)datestring {

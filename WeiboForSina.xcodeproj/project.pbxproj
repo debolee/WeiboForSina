@@ -83,10 +83,7 @@
 		C394B7C91B18631B00D85A13 /* messagescenter_messagebox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C394B7C71B18631B00D85A13 /* messagescenter_messagebox@3x.png */; };
 		C39B9B0B1B08C24200D28DFD /* WBComment.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B9B0A1B08C24200D28DFD /* WBComment.m */; };
 		C39B9B0E1B08CEC000D28DFD /* WBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B9B0D1B08CEC000D28DFD /* WBCommentCell.m */; };
-		C3A7F10D1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7F10C1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.m */; };
 		C3B7DA291AFDEA930045332B /* top_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B7DA281AFDEA930045332B /* top_bg@2x.png */; };
-		C3BB56951B245D780065B6A8 /* WBSearchSuggestionsOfSchools.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BB56941B245D780065B6A8 /* WBSearchSuggestionsOfSchools.m */; };
-		C3BB569C1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BB569B1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.m */; };
 		C3C117A31B1998E700803F7F /* WBChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117A21B1998E700803F7F /* WBChatListCell.m */; };
 		C3C117A61B19B57600803F7F /* tabbar_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C117A41B19B57600803F7F /* tabbar_search@2x.png */; };
 		C3C117A71B19B57600803F7F /* tabbar_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C117A51B19B57600803F7F /* tabbar_search@3x.png */; };
@@ -227,13 +224,7 @@
 		C39B9B0A1B08C24200D28DFD /* WBComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComment.m; sourceTree = "<group>"; };
 		C39B9B0C1B08CEC000D28DFD /* WBCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCommentCell.h; sourceTree = "<group>"; };
 		C39B9B0D1B08CEC000D28DFD /* WBCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCommentCell.m; sourceTree = "<group>"; };
-		C3A7F10B1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSearchSuggestionsOfUsers.h; sourceTree = "<group>"; };
-		C3A7F10C1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSearchSuggestionsOfUsers.m; sourceTree = "<group>"; };
 		C3B7DA281AFDEA930045332B /* top_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_bg@2x.png"; sourceTree = "<group>"; };
-		C3BB56931B245D780065B6A8 /* WBSearchSuggestionsOfSchools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSearchSuggestionsOfSchools.h; sourceTree = "<group>"; };
-		C3BB56941B245D780065B6A8 /* WBSearchSuggestionsOfSchools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSearchSuggestionsOfSchools.m; sourceTree = "<group>"; };
-		C3BB569A1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSearchSuggestionsOfCompanies.h; sourceTree = "<group>"; };
-		C3BB569B1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSearchSuggestionsOfCompanies.m; sourceTree = "<group>"; };
 		C3C117A11B1998E700803F7F /* WBChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBChatListCell.h; sourceTree = "<group>"; };
 		C3C117A21B1998E700803F7F /* WBChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBChatListCell.m; sourceTree = "<group>"; };
 		C3C117A41B19B57600803F7F /* tabbar_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_search@2x.png"; sourceTree = "<group>"; };
@@ -388,12 +379,6 @@
 				C39B9B0A1B08C24200D28DFD /* WBComment.m */,
 				C31EC3321B170E3800256DB2 /* WBGroup.h */,
 				C31EC3331B170E3800256DB2 /* WBGroup.m */,
-				C3A7F10B1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.h */,
-				C3A7F10C1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.m */,
-				C3BB56931B245D780065B6A8 /* WBSearchSuggestionsOfSchools.h */,
-				C3BB56941B245D780065B6A8 /* WBSearchSuggestionsOfSchools.m */,
-				C3BB569A1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.h */,
-				C3BB569B1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -529,7 +514,6 @@
 			isa = PBXGroup;
 			children = (
 				C38146551B10C86000744217 /* Home */,
-				C3C8D0261B22AB4200F0B425 /* Discover */,
 				C38BD0E31AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.h */,
 				C38BD0E41AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m */,
 				C3EBAE691AF7726C00B3652B /* WBPreferenceTableViewController.h */,
@@ -538,17 +522,10 @@
 				C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */,
 				C394B7B71B18613F00D85A13 /* WBMessageTableViewController.h */,
 				C394B7B81B18613F00D85A13 /* WBMessageTableViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		C3C8D0261B22AB4200F0B425 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
 				C38CBACD1B1E40AC009E4AA4 /* WBDiscoverTableViewController.h */,
 				C38CBACE1B1E40AC009E4AA4 /* WBDiscoverTableViewController.m */,
 			);
-			name = Discover;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -707,7 +684,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3A7F10D1B23E1EB00AAFDCF /* WBSearchSuggestionsOfUsers.m in Sources */,
 				C3E543181AFE1AD5004F884D /* WBWeiboAPI.m in Sources */,
 				C38BD0E51AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m in Sources */,
 				C357A5F61B05F3970012728C /* WBDetailWeiboTableViewController.m in Sources */,
@@ -723,7 +699,6 @@
 				C354ACE91B109058008F085B /* WBTitleMenuViewController.m in Sources */,
 				C39B9B0B1B08C24200D28DFD /* WBComment.m in Sources */,
 				C35475C81AF6FEC5007C43EA /* WBUserInfo.m in Sources */,
-				C3BB569C1B245DC50065B6A8 /* WBSearchSuggestionsOfCompanies.m in Sources */,
 				C37478FB1AFEFA0A005A405C /* WBWeiboView.m in Sources */,
 				C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */,
 				C3E5431F1AFE2EC6004F884D /* WBWeibo.m in Sources */,
@@ -731,7 +706,6 @@
 				C31EC3341B170E3800256DB2 /* WBGroup.m in Sources */,
 				C38CBACF1B1E40AC009E4AA4 /* WBDiscoverTableViewController.m in Sources */,
 				C39B9B0E1B08CEC000D28DFD /* WBCommentCell.m in Sources */,
-				C3BB56951B245D780065B6A8 /* WBSearchSuggestionsOfSchools.m in Sources */,
 				C37B8D751B17449A00295501 /* WBSearchFriendsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
