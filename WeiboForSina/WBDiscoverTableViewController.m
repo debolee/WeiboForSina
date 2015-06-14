@@ -7,6 +7,7 @@
 //
 
 #import "WBDiscoverTableViewController.h"
+#import "WBNearbyTableViewController.h"
 
 @interface WBDiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchbar;
@@ -31,9 +32,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"hotTopicsCell2" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"hotTopicsCell2"];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"nearbyPeopleCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"nearbyPeopleCell"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"nearbyWeiboCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"nearbyWeiboCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"nearbyCell" bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"nearbyCell"];
     
 }
 
@@ -142,9 +142,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.tableView) {
+    if (tableView == self.tableView && section == 0) {
         return 2;
         
+    } else if (tableView == self.tableView && section == 1) {
+        return 1;
     } else if (tableView == self.searchDisplayController.searchResultsTableView) {
         return self.results.count;
 
@@ -162,11 +164,8 @@
         } else if (indexPath.section == 0 && indexPath.row == 1) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hotTopicsCell2" forIndexPath:indexPath];
             return cell;
-        } else if (indexPath.section == 1 && indexPath.row == 0) {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyPeopleCell" forIndexPath:indexPath];
-            return cell;
         } else {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyWeiboCell" forIndexPath:indexPath];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyCell" forIndexPath:indexPath];
             return cell;
         }
         
@@ -199,9 +198,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.tableView == tableView && indexPath.section == 1 && indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"toNearbyVC" sender:nil];
+    }
     
 }
 
@@ -241,14 +240,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"toNearbyVC"]) {
+        WBNearbyTableViewController *nearbyVC = [segue destinationViewController];
+        nearbyVC.Style = nearbyListViewStyleWeibo;
+        
+    }
 }
-*/
+
 
 @end

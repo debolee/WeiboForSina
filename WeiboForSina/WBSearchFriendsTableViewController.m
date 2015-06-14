@@ -25,6 +25,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"WBUserInfoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"WBUserInfoCell"];
     self.title = @"推荐好友";
     
 }
@@ -58,7 +60,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WBUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userInfoCell" forIndexPath:indexPath];
+    WBUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WBUserInfoCell" forIndexPath:indexPath];
     
     cell.user = self.users[indexPath.row];
     return cell;

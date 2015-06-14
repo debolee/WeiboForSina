@@ -39,8 +39,9 @@
 + (WBWeibo *)parseWeiboByDictionary:(NSDictionary *)dic {
     WBWeibo *myWeibo = [[WBWeibo alloc]init];
     
-    
-    myWeibo.createDate = [WBJsonParser fomateString:[dic objectForKey:@"created_at"]];
+
+#warning TODO 时间需要转换
+    myWeibo.createDate = [dic objectForKey:@"created_at"];
     
     myWeibo.text = [dic objectForKey:@"text"];
     
@@ -80,7 +81,9 @@
 
 + (WBComment *)parseCommentByDictionary:(NSDictionary *)dic {
     WBComment *comment = [[WBComment alloc]init];
-    comment.createdAt = [WBJsonParser fomateString:[dic objectForKey:@"created_at"]];
+
+#warning TODO 时间需要转换
+    comment.createdAt = [dic objectForKey:@"created_at"];
     comment.commentText = [dic objectForKey:@"text"];
     comment.commentSource = [dic objectForKey:@"source"];
     comment.user = [WBJsonParser parseUserInfoByDictionary:[dic objectForKey:@"user"]];
@@ -144,8 +147,9 @@
         return nil;
 }
 
-#pragma mark 转换时间格式
-//转换时间格式
+#pragma mark - 转换时间格式
+
+//转换时间格式 用此方法转换返回空字符串
 + (NSString *)fomateString:(NSString *)datestring {
     NSString *formatString = @"E MMM d HH:mm:ss Z yyyy";
     NSDateFormatter *format = [[NSDateFormatter alloc]init];
