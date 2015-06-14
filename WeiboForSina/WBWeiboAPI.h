@@ -34,4 +34,10 @@ typedef void (^callBack) (id obj);
 //搜索公司时的联想搜索建议
 - (void)searchSuggestionsCompaniesWithString:(NSString *)string AndCount:(int)count CompletionCallBack:(callBack)callBack;
 
+//获取某个位置周边的动态
+- (void)requestNearbyTimeLineWithCoordinate:(CLLocationCoordinate2D) coord AndRange:(NSInteger )range AndStarttime:(NSInteger)starttime AndEndtime:(NSInteger)endtime AndSort:(NSInteger)sort AndCount:(NSInteger)count AndPage:(NSInteger)page AndBaseApp:(NSInteger)base_app AndOffSet:(NSInteger)offset CompletionCallBack:(callBack)callBack;
+
+//获取附近发位置微博的人
+- (void)requestNearbyUsersWithCoordinate:(CLLocationCoordinate2D) coord AndRange:(NSInteger )range AndStarttime:(NSInteger)starttime AndEndtime:(NSInteger)endtime AndSort:(NSInteger)sort AndCount:(NSInteger)count AndPage:(NSInteger)page AndOffSet:(NSInteger)offset CompletionCallBack:(callBack)callBack;
+
 @end

@@ -23,7 +23,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-#warning 微博消息接口需要申请，暂未实现，模拟对话列表中的用户信息
+#warning 微博消息接口需要申请，暂未实现
+    //模拟对话列表中的用户信息
     UIImage *image = [UIImage imageNamed:@"icon"];
     
     NSDictionary *message = [[NSDictionary alloc]initWithObjectsAndKeys:@"今天好像要下大暴雨哦，你带伞了吗?", @"message",@"微博客服",@"nickName", image,@"image",nil];

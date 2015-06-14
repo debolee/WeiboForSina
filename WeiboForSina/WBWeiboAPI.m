@@ -137,7 +137,39 @@ static WBWeiboAPI *weiboApi;
     }];
 }
 
+//获取某个位置周边的动态
+- (void)requestNearbyTimeLineWithCoordinate:(CLLocationCoordinate2D) coord AndRange:(NSInteger )range AndStarttime:(NSInteger)starttime AndEndtime:(NSInteger)endtime AndSort:(NSInteger)sort AndCount:(NSInteger)count AndPage:(NSInteger)page AndBaseApp:(NSInteger)base_app AndOffSet:(NSInteger)offset CompletionCallBack:(callBack)callBack {
+    
+    NSString *params = [NSString stringWithFormat:@"lat=%f&long=%f&range=%ld&starttime=%ld&endtime%ld&sort=%ld&count=%ld&page=%ld&base_app=%ld&offset=%ld", coord.latitude, coord.longitude, (long)range, (long)starttime, (long)endtime, (long)sort, (long)count, (long)page, (long)base_app, (long)offset];
+    
+    [self getByApiName:@"place/nearby_timeline.json" andParams:params andCallBack:^(id obj) {
+        NSDictionary *dic = obj;
+        NSArray *weibosDic = [dic objectForKey:@"statuses"];
+        NSMutableArray *Weibos = [NSMutableArray array];
+        for (NSDictionary *weiboDic in weibosDic) {
+            WBWeibo *weibo = [WBJsonParser parseWeiboByDictionary:weiboDic];
+            [Weibos addObject:weibo];
+        }
+        callBack(Weibos);
+    }];
 
+}
+
+//获取附近发位置微博的人
+- (void)requestNearbyUsersWithCoordinate:(CLLocationCoordinate2D) coord AndRange:(NSInteger )range AndStarttime:(NSInteger)starttime AndEndtime:(NSInteger)endtime AndSort:(NSInteger)sort AndCount:(NSInteger)count AndPage:(NSInteger)page AndOffSet:(NSInteger)offset CompletionCallBack:(callBack)callBack {
+    
+    NSString *params = [NSString stringWithFormat:@"lat=%f&long=%f&range=%ld&starttime=%ld&endtime%ld&sort=%ld&count=%ld&page=%ld&offset=%ld", coord.latitude, coord.longitude, (long)range, (long)starttime, (long)endtime, (long)sort, (long)count, (long)page, (long)offset];
+    
+    [self getByApiName:@"place/nearby/users.json" andParams:params andCallBack:^(id obj) {
+        NSArray *usersDic = [(NSDictionary *)obj objectForKey:@"users"];
+        NSMutableArray *users = [[NSMutableArray alloc]init];
+        for (NSDictionary *userDic in usersDic) {
+            WBUserInfo *user = [WBJsonParser parseUserInfoByDictionary:userDic];
+            [users addObject:user];
+        }
+        callBack(users);
+    }];
+}
 
 -(void)getByApiName:(NSString *)apiName andParams:(NSString *)params andCallBack:(callBack)callback {
     

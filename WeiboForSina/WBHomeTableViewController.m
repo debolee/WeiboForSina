@@ -39,11 +39,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
 //    self.title = @"首页";
+    [self.tableView registerNib:[UINib nibWithNibName:@"WBWeiboCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"WBWeiboCell"];
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"首页" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
-    
+
 }
+
 
 #pragma mark 1.设置导航栏中间titleView
 - (UIButton *) titleViewWithTitleStr:(NSString *) title {
@@ -143,7 +146,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WBWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weiboCell" forIndexPath:indexPath];
+    WBWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WBWeiboCell" forIndexPath:indexPath];
     
     NSLog(@"cell is cell...!!!");
     cell.weibo = [self.weibos objectAtIndex:indexPath.row];
@@ -158,6 +161,11 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    WBWeibo *weibo = [self.weibos objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"toDetailWeiboVC" sender:weibo];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -203,12 +211,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"detailWeibo"]) {
+    if ([segue.identifier isEqualToString:@"toDetailWeiboVC"]) {
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSLog(@"indexPath.row is :%ld",(long)indexPath.row);
         WBDetailWeiboTableViewController *dvc = [segue destinationViewController];
-        dvc.weibo = self.weibos[indexPath.row];
+        dvc.weibo = (WBWeibo *)sender;
     }
 }
 

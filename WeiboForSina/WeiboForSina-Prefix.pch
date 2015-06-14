@@ -21,4 +21,9 @@
 #define WBAppRedirectURL    @"https://api.weibo.com/oauth2/default.html"
 #define FONTSIZE_OF_WB 14
 
+typedef NS_ENUM(NSInteger, nearbyListViewStyle) {
+    nearbyListViewStyleUser,
+    nearbyListViewStyleWeibo
+};
+
 #endif
