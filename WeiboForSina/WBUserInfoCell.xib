@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WBUserInfoCell" rowHeight="89" id="sha-eV-pXp" customClass="WBUserInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sha-eV-pXp" id="3ua-M6-raR">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AxY-nV-fUN">
+                        <rect key="frame" x="8" y="10" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Zv9-RC-ouV"/>
+                            <constraint firstAttribute="width" constant="70" id="jd1-Ly-mDN"/>
+                            <constraint firstAttribute="height" constant="70" id="xrk-pn-6HT"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y56-hs-5lm">
+                        <rect key="frame" x="86" y="49" width="148" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="tkD-o5-8O9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5E-V1-lVz">
+                        <rect key="frame" x="86" y="21" width="148" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="T43-ix-tjs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-iU-ILV">
+                        <rect key="frame" x="250" y="1" width="70" height="87"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="aly-Al-HBG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="titleEdgeInsets" minX="-15" minY="15" maxX="15" maxY="-15"/>
+                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="-20" maxY="15"/>
+                        <state key="normal" title="加关注" image="navigationbar_friendsearch_highlighted.png">
+                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="followButtonClick:" destination="sha-eV-pXp" eventType="touchUpInside" id="p3K-Gt-otD"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="r2Q-iU-ILV" secondAttribute="bottom" constant="-8" id="530-ik-Vyo"/>
+                    <constraint firstItem="u5E-V1-lVz" firstAttribute="top" secondItem="3ua-M6-raR" secondAttribute="topMargin" constant="13" id="7a4-aK-45j"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="u5E-V1-lVz" secondAttribute="trailing" constant="78" id="IfC-sn-CbN"/>
+                    <constraint firstItem="AxY-nV-fUN" firstAttribute="top" secondItem="3ua-M6-raR" secondAttribute="topMargin" constant="2" id="RPu-J0-mBE"/>
+                    <constraint firstItem="r2Q-iU-ILV" firstAttribute="top" secondItem="3ua-M6-raR" secondAttribute="topMargin" constant="-7" id="W5V-nP-J2u"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="r2Q-iU-ILV" secondAttribute="trailing" constant="-8" id="XJG-lF-2vr"/>
+                    <constraint firstItem="AxY-nV-fUN" firstAttribute="leading" secondItem="3ua-M6-raR" secondAttribute="leadingMargin" id="Xsf-8m-8Al"/>
+                    <constraint firstItem="Y56-hs-5lm" firstAttribute="top" secondItem="u5E-V1-lVz" secondAttribute="bottom" constant="8" id="axJ-XW-pZ2"/>
+                    <constraint firstItem="u5E-V1-lVz" firstAttribute="leading" secondItem="AxY-nV-fUN" secondAttribute="trailing" constant="8" id="hZM-4b-ixh"/>
+                    <constraint firstItem="Y56-hs-5lm" firstAttribute="leading" secondItem="AxY-nV-fUN" secondAttribute="trailing" constant="8" id="jUr-yM-iMH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Y56-hs-5lm" secondAttribute="trailing" constant="78" id="wMY-Oy-Eo0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followButton" destination="r2Q-iU-ILV" id="fP9-pk-eGM"/>
+                <outlet property="headImageView" destination="AxY-nV-fUN" id="OkP-UD-fAh"/>
+                <outlet property="introduction" destination="Y56-hs-5lm" id="a4C-DK-l0i"/>
+                <outlet property="nickName" destination="u5E-V1-lVz" id="JbT-x0-YLq"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="188.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="navigationbar_friendsearch_highlighted.png" width="30" height="30"/>
+    </resources>
+</document>

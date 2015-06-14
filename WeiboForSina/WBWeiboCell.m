@@ -23,7 +23,7 @@
     _weibo = weibo;
     self.nick.text = self.weibo.user.nickName;
     self.topicTime.text = self.weibo.createDate;
-    self.address.text = self.weibo.location;
+    self.address.text = [NSString stringWithFormat:@"%f, %f", self.weibo.coord.latitude, self.weibo.coord.longitude];
     [self.commentNum setTitle:self.weibo.commentsCount forState:UIControlStateNormal];
     [self.transNums setTitle:self.weibo.repostsCount forState:UIControlStateNormal];
     [self.attitCount setTitle:self.weibo.attitudesCount forState:UIControlStateNormal];

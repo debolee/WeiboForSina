@@ -36,7 +36,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
     self.portraitImage.layer.cornerRadius = 40;
     self.portraitImage.layer.masksToBounds = YES;
     self.portraitImage.layer.borderColor = [UIColor whiteColor].CGColor;
