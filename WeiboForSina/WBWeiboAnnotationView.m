@@ -16,7 +16,7 @@
     if (self) {
         
         UIImageView *backImageView = [[UIImageView alloc]init];
-        UIImage *image = [[UIImage imageNamed:@"Annotation_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 20, 10) resizingMode:UIImageResizingModeStretch];
+        UIImage *image = [[UIImage imageNamed:@"Annotation_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 15) resizingMode:UIImageResizingModeStretch];
         backImageView.image = image;
         backImageView.frame = CGRectMake(-80, -60, 160, 60);
         backImageView.contentMode = UIViewContentModeScaleToFill;

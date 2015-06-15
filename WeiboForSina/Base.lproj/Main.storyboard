@@ -687,7 +687,7 @@
         <!--Nearby Table View Controller-->
         <scene sceneID="I2o-pA-fey">
             <objects>
-                <tableViewController id="SSh-pz-ye9" customClass="WBNearbyTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="SSh-pz-ye9" customClass="WBNearbyTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OOK-fg-DlG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

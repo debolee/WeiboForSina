@@ -43,8 +43,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.toMapViewbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 50, self.view.bounds.size.height - 98, 40, 40)];
-    [self.toMapViewbutton setBackgroundImage:[UIImage imageNamed:@"map_view_bt"] forState:UIControlStateNormal];
+    self.toMapViewbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 45, self.view.bounds.size.height - 45, 30, 30)];
+    [self.toMapViewbutton setBackgroundImage:[UIImage imageNamed:@"near_change_map"] forState:UIControlStateNormal];
     [self.navigationController.view addSubview:self.toMapViewbutton];
     [self.toMapViewbutton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -124,7 +124,10 @@
     self.coord = newLocation.coordinate;
     
     //获取当前位置后发送获取附近微博的请求
-    [self requestWeibos];
+    if (!self.results) {
+        [self requestWeibos];
+    }
+
     NSLog(@"coordinate : %f, %f", self.coord.latitude, self.coord.longitude);
     
 }

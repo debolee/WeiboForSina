@@ -22,13 +22,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    self.toMapViewbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 50, self.view.bounds.size.height - 50, 40, 40)];
-    [self.toMapViewbutton setBackgroundImage:[UIImage imageNamed:@"map_view_bt"] forState:UIControlStateNormal];
+    self.toMapViewbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 45, self.view.bounds.size.height - 45, 30, 30)];
+    [self.toMapViewbutton setBackgroundImage:[UIImage imageNamed:@"near_change_list"] forState:UIControlStateNormal];
     [self.view addSubview:self.toMapViewbutton];
     [self.toMapViewbutton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
+
     for (WBWeibo *weibo in self.results) {
         WBAnnotation *Ann = [[WBAnnotation alloc]init];
         [Ann setCoordinate:weibo.coord];
@@ -39,8 +38,8 @@
     
     //地图的显示精度，数值越小地图显示越详细
     MKCoordinateSpan span;
-    span.longitudeDelta = 0.01;
-    span.latitudeDelta = 0.01;
+    span.longitudeDelta = 0.005;
+    span.latitudeDelta = 0.005;
     
     WBWeibo *weibo = [self.results objectAtIndex:0];
     CLLocationCoordinate2D coord = weibo.coord;
