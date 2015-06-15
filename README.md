@@ -29,7 +29,4 @@
     发布、转发微博
 
 ####动图
-![sinaWeibo](http://cc.cocimg.com/bbs/attachment/postcate/topic/16/306893_189_54df1434341976ae2a89163727139.gif)			
-		
-				
-						
+![sinaWeibo](http://cc.cocimg.com/bbs/attachment/postcate/topic/16/306893_189_c1ad14343610183f7e82fb284cd6d.gif)
