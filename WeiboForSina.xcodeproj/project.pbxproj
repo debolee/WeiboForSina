@@ -57,7 +57,6 @@
 		C36977361B252C1500DE97DD /* nearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36977351B252C1500DE97DD /* nearbyCell.xib */; };
 		C369773C1B25433600DE97DD /* WBsearchSuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C369773A1B25433600DE97DD /* WBsearchSuggestionCell.m */; };
 		C369773D1B25433600DE97DD /* WBsearchSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C369773B1B25433600DE97DD /* WBsearchSuggestionCell.xib */; };
-		C36977411B25785C00DE97DD /* What‘sTheNextTask in Resources */ = {isa = PBXBuildFile; fileRef = C36977401B25785C00DE97DD /* What‘sTheNextTask */; };
 		C36CD0ED1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */; };
 		C37478FB1AFEFA0A005A405C /* WBWeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = C37478FA1AFEFA0A005A405C /* WBWeiboView.m */; };
 		C37478FE1AFEFA2B005A405C /* WBWeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37478FD1AFEFA2B005A405C /* WBWeiboCell.m */; };
@@ -123,6 +122,7 @@
 		C3E543181AFE1AD5004F884D /* WBWeiboAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E543171AFE1AD5004F884D /* WBWeiboAPI.m */; };
 		C3E5431C1AFE2CBC004F884D /* WBHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E5431B1AFE2CBC004F884D /* WBHomeTableViewController.m */; };
 		C3E5431F1AFE2EC6004F884D /* WBWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E5431E1AFE2EC6004F884D /* WBWeibo.m */; };
+		C3E7E4F21B2EB4EC00E12183 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C3E7E4F11B2EB4EC00E12183 /* README.md */; };
 		C3EBAE671AF7719300B3652B /* login_btn_bg_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE651AF7719300B3652B /* login_btn_bg_hover@2x.png */; };
 		C3EBAE681AF7719300B3652B /* login_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3EBAE661AF7719300B3652B /* login_btn_bg@2x.png */; };
 		C3EBAE6B1AF7726C00B3652B /* WBPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EBAE6A1AF7726C00B3652B /* WBPreferenceTableViewController.m */; };
@@ -209,7 +209,6 @@
 		C36977391B25433600DE97DD /* WBsearchSuggestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBsearchSuggestionCell.h; sourceTree = "<group>"; };
 		C369773A1B25433600DE97DD /* WBsearchSuggestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBsearchSuggestionCell.m; sourceTree = "<group>"; };
 		C369773B1B25433600DE97DD /* WBsearchSuggestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBsearchSuggestionCell.xib; sourceTree = "<group>"; };
-		C36977401B25785C00DE97DD /* What‘sTheNextTask */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "What‘sTheNextTask"; sourceTree = "<group>"; };
 		C36CD0EB1B070CAD0077FE18 /* WBDetailWeiboHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDetailWeiboHeaderView.h; sourceTree = "<group>"; };
 		C36CD0EC1B070CAD0077FE18 /* WBDetailWeiboHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDetailWeiboHeaderView.m; sourceTree = "<group>"; };
 		C37478F91AFEFA0A005A405C /* WBWeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBWeiboView.h; sourceTree = "<group>"; };
@@ -306,6 +305,7 @@
 		C3E5431B1AFE2CBC004F884D /* WBHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBHomeTableViewController.m; sourceTree = "<group>"; };
 		C3E5431D1AFE2EC6004F884D /* WBWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBWeibo.h; sourceTree = "<group>"; };
 		C3E5431E1AFE2EC6004F884D /* WBWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBWeibo.m; sourceTree = "<group>"; };
+		C3E7E4F11B2EB4EC00E12183 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		C3EBAE651AF7719300B3652B /* login_btn_bg_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn_bg_hover@2x.png"; sourceTree = "<group>"; };
 		C3EBAE661AF7719300B3652B /* login_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn_bg@2x.png"; sourceTree = "<group>"; };
 		C3EBAE691AF7726C00B3652B /* WBPreferenceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPreferenceTableViewController.h; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 		C32B0CD31AE7BD5B008FB262 /* WeiboForSina */ = {
 			isa = PBXGroup;
 			children = (
-				C36977401B25785C00DE97DD /* What‘sTheNextTask */,
+				C3E7E4F11B2EB4EC00E12183 /* README.md */,
 				C32B0CDC1AE7BD5B008FB262 /* WBAppDelegate.h */,
 				C32B0CDD1AE7BD5B008FB262 /* WBAppDelegate.m */,
 				C32B0CDF1AE7BD5B008FB262 /* Main.storyboard */,
@@ -771,7 +771,6 @@
 				C31EC3421B171B7100256DB2 /* navigationbar_pop_highlighted@3x.png in Resources */,
 				C32CE8761B04D62900377B92 /* timeline_icon_like_disable@3x.png in Resources */,
 				C3E543151AFE0D87004F884D /* navigationbar_setting@3x.png in Resources */,
-				C36977411B25785C00DE97DD /* What‘sTheNextTask in Resources */,
 				C394B7C11B1862EA00D85A13 /* messagescenter_at@3x.png in Resources */,
 				C31EC3391B17197D00256DB2 /* navigationbar_friendsearch_highlighted@2x.png in Resources */,
 				C32CE87F1B04D65A00377B92 /* timeline_icon_unlike@2x.png in Resources */,
@@ -826,6 +825,7 @@
 				C3C117A31B1998E700803F7F /* WBChatListCell.m in Sources */,
 				C3CD62231B2D661A00A5E710 /* WBAnnotation.m in Sources */,
 				C37478FE1AFEFA2B005A405C /* WBWeiboCell.m in Sources */,
+				C3E7E4F21B2EB4EC00E12183 /* README.md in Sources */,
 				C354ACE61B10900B008F085B /* WBDropdownMenuView.m in Sources */,
 				C35475CC1AF6FF42007C43EA /* WBJsonParser.m in Sources */,
 				C394B7B61B18542C00D85A13 /* WBUserInfoCell.m in Sources */,

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>38CB159E-DD41-4363-A154-40B5967F89B7</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>WeiboForSina</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>FF3349F20EBFF1CD99EACED0F8A697C2E8E61C0F</key>
 		<string>https://github.com/debolee/WeiboForSina.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WeiboForSina.xcodeproj/project.xcworkspace</string>
+	<string>WeiboForSina.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>FF3349F20EBFF1CD99EACED0F8A697C2E8E61C0F</key>
