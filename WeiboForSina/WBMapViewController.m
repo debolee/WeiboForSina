@@ -52,7 +52,6 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 
 #warning TODO 当dismiss地图控制器后再次进入，偶尔界面卡死
-    NSLog(@"viewForAnnotation...... ");
     if (self.Style == nearbyListViewStyleWeibo) {
         static NSString *weiboAnnID = @"weiboAnnID";
         WBWeiboAnnotationView *weiboAnnView = (WBWeiboAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:weiboAnnID];
