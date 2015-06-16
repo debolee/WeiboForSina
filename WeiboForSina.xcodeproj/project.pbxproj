@@ -400,9 +400,9 @@
 				C32B0CDD1AE7BD5B008FB262 /* WBAppDelegate.m */,
 				C32B0CDF1AE7BD5B008FB262 /* Main.storyboard */,
 				C35475C51AF6FEA4007C43EA /* Models */,
-				C35475C91AF6FF00007C43EA /* Utils */,
 				C38BD0D61AF3B075004FDAB0 /* Views */,
 				C38BD0E61AF3BA06004FDAB0 /* Controllers */,
+				C35475C91AF6FF00007C43EA /* Utils */,
 				C38BD0D11AF3AA60004FDAB0 /* Icons */,
 				C32B0CE51AE7BD5B008FB262 /* Images.xcassets */,
 				C32B0CD41AE7BD5B008FB262 /* Supporting Files */,
@@ -477,6 +477,8 @@
 			children = (
 				C3E5431A1AFE2CBC004F884D /* WBHomeTableViewController.h */,
 				C3E5431B1AFE2CBC004F884D /* WBHomeTableViewController.m */,
+				C357A5F41B05F3970012728C /* WBDetailWeiboTableViewController.h */,
+				C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */,
 				C354ACE71B109058008F085B /* WBTitleMenuViewController.h */,
 				C354ACE81B109058008F085B /* WBTitleMenuViewController.m */,
 				C37B8D731B17449A00295501 /* WBSearchFriendsTableViewController.h */,
@@ -611,17 +613,31 @@
 			isa = PBXGroup;
 			children = (
 				C38146551B10C86000744217 /* Home */,
+				C3BCFDE61B2FB23B003D185C /* Message */,
 				C3C8D0261B22AB4200F0B425 /* Discover */,
+				C3BCFDE71B2FB2B5003D185C /* Me */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C3BCFDE61B2FB23B003D185C /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				C394B7B71B18613F00D85A13 /* WBMessageTableViewController.h */,
+				C394B7B81B18613F00D85A13 /* WBMessageTableViewController.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		C3BCFDE71B2FB2B5003D185C /* Me */ = {
+			isa = PBXGroup;
+			children = (
 				C38BD0E31AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.h */,
 				C38BD0E41AF3BA00004FDAB0 /* WBUserInfoHomeTableViewController.m */,
 				C3EBAE691AF7726C00B3652B /* WBPreferenceTableViewController.h */,
 				C3EBAE6A1AF7726C00B3652B /* WBPreferenceTableViewController.m */,
-				C357A5F41B05F3970012728C /* WBDetailWeiboTableViewController.h */,
-				C357A5F51B05F3970012728C /* WBDetailWeiboTableViewController.m */,
-				C394B7B71B18613F00D85A13 /* WBMessageTableViewController.h */,
-				C394B7B81B18613F00D85A13 /* WBMessageTableViewController.m */,
 			);
-			name = Controllers;
+			name = Me;
 			sourceTree = "<group>";
 		};
 		C3C8D0261B22AB4200F0B425 /* Discover */ = {
