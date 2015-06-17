@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zar-aQ-xTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="564"/>
+            <point key="canvasLocation" x="755" y="444"/>
         </scene>
         <!--Preference Table View Controller-->
         <scene sceneID="03r-KZ-Zxd">
@@ -232,12 +232,59 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WA8-r2-3eA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="564"/>
+            <point key="canvasLocation" x="1183" y="444"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Send Weibo View Controller-->
+        <scene sceneID="JPw-mT-TFR">
+            <objects>
+                <viewController id="90Q-qI-A9c" customClass="WBSendWeiboViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KGj-cN-fCO"/>
+                        <viewControllerLayoutGuide type="bottom" id="a2V-qJ-s1O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e8t-fD-aaz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="请输入微博内容... ..." translatesAutoresizingMaskIntoConstraints="NO" id="5fH-JY-aOY">
+                                <rect key="frame" x="0.0" y="64" width="320" height="156"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="图片" id="h5Z-74-8Px"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="pOQ-O1-QUJ"/>
+                        <barButtonItem title="@" id="SYS-tt-ZQo"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sYP-7O-4Uq"/>
+                        <barButtonItem title="#" id="EXK-Pr-E20"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zUD-DU-EvS"/>
+                        <barButtonItem title="表情" id="RtL-Dk-gG4"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="j7a-qh-Yoh">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="OFY-Yt-fiB">
+                            <connections>
+                                <action selector="cannelButtonClick:" destination="90Q-qI-A9c" id="Svs-EO-R84"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="发送" id="B50-84-jqv">
+                            <connections>
+                                <action selector="sendButtonClick:" destination="90Q-qI-A9c" id="swR-kG-HUv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xmU-TK-iun" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-3171"/>
+        </scene>
+        <!--Tab Bar View Controller-->
         <scene sceneID="VbO-oe-kOx">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="sOF-TE-xVv" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="sOF-TE-xVv" customClass="WBTabBarViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="0rk-Yt-6zl">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -249,6 +296,7 @@
                         <segue destination="Sd9-O5-IQh" kind="relationship" relationship="viewControllers" id="GJK-9R-MeD"/>
                         <segue destination="WKR-Ll-MA6" kind="relationship" relationship="viewControllers" id="4A8-qc-wyl"/>
                         <segue destination="Kfg-kf-cXG" kind="relationship" relationship="viewControllers" id="9A4-GO-nWX"/>
+                        <segue destination="9tf-OF-CdK" kind="modal" identifier="toSendWeiboVC" id="JK9-BC-1fa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3r-EX-E9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xa-iQ-VfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="564"/>
+            <point key="canvasLocation" x="193" y="444"/>
         </scene>
         <!--Home Table View Controller-->
         <scene sceneID="zCl-pj-04q">
@@ -302,7 +350,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LD-by-EH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="-2364"/>
+            <point key="canvasLocation" x="720" y="-2340"/>
         </scene>
         <!--Search Friends Table View Controller-->
         <scene sceneID="WaA-pS-ghn">
@@ -322,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYf-yA-9mG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="-3049"/>
+            <point key="canvasLocation" x="1638" y="-3177"/>
         </scene>
         <!--Detail Weibo Table View Controller-->
         <scene sceneID="9uR-iY-2D8">
@@ -509,7 +557,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxT-6C-QCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-2372"/>
+            <point key="canvasLocation" x="1638" y="-2340"/>
         </scene>
         <!--消息-->
         <scene sceneID="SUD-me-k5U">
@@ -682,7 +730,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="720" y="-1295"/>
+            <point key="canvasLocation" x="1252" y="-1295"/>
         </scene>
         <!--Nearby Table View Controller-->
         <scene sceneID="I2o-pA-fey">
@@ -718,7 +766,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSf-0q-Gat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="-1295"/>
+            <point key="canvasLocation" x="1733" y="-1295"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="2wn-KQ-yoh">
@@ -744,7 +792,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75l-He-RZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-1285"/>
+            <point key="canvasLocation" x="2235" y="-1285"/>
         </scene>
         <!--消息-->
         <scene sceneID="xjw-Cc-cZu">
@@ -779,7 +827,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tme-0y-i2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="-2364"/>
+            <point key="canvasLocation" x="193" y="-2340"/>
         </scene>
         <!--发现-->
         <scene sceneID="5ca-Ds-r3n">
@@ -801,7 +849,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxU-Rq-nSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="-1295"/>
+            <point key="canvasLocation" x="720" y="-1295"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bC6-hD-zbv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="9tf-OF-CdK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CHn-rQ-O6d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kg2-qa-1pl">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="90Q-qI-A9c" kind="relationship" relationship="rootViewController" id="1CA-wB-aYl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d86-hC-Vv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="-3171"/>
         </scene>
     </scenes>
     <resources>
@@ -829,6 +898,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PLj-K8-aZc"/>
+        <segue reference="S9r-9M-45L"/>
     </inferredMetricsTieBreakers>
 </document>
