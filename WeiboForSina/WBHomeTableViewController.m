@@ -125,6 +125,11 @@
 
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.toolbar.frame = CGRectMake(self.navigationController.toolbar.frame.origin.x, self.view.bounds.size.height - 44, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.bounds.size.height);
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
