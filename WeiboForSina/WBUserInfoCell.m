@@ -7,6 +7,7 @@
 //
 
 #import "WBUserInfoCell.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation WBUserInfoCell
 
@@ -17,13 +18,7 @@
 - (void)setUser:(WBUserInfo *)user {
     _user = user;
     if (self.user.portraitImagePath) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.user.portraitImagePath] options:0 error:nil];
-            UIImage *image = [UIImage imageWithData:imageData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.headImageView.image = image;
-            });
-        });
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.user.portraitImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
     }
     
     self.nickName.text = self.user.nickName;

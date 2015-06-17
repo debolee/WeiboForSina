@@ -7,6 +7,8 @@
 //
 
 #import "WBUserInfoHomeTableViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+
 
 
 @interface WBUserInfoHomeTableViewController ()
@@ -95,19 +97,9 @@
 
 
 - (void)updateUI {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *coverImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.userInfo.coverImagePath]];
-        UIImage *coverImage = [UIImage imageWithData:coverImageData];
-        
-        NSData *portraitImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.userInfo.portraitImagePath]];
-        UIImage *portraitImage = [UIImage imageWithData:portraitImageData];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.coverImage.image = coverImage;
-            self.portraitImage.image = portraitImage;
-        });
-        
-    });
+    
+    [self.coverImage sd_setImageWithURL:[NSURL URLWithString:self.userInfo.coverImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
+    [self.portraitImage sd_setImageWithURL:[NSURL URLWithString:self.userInfo.portraitImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
     
     self.nickName.text = self.userInfo.nickName;
     self.site.text = self.userInfo.site;

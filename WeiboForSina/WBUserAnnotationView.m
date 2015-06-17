@@ -7,6 +7,7 @@
 //
 
 #import "WBUserAnnotationView.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation WBUserAnnotationView
 
@@ -37,13 +38,7 @@
     WBAnnotation *ann = self.annotation;
     WBWeibo *weibo = ann.weibo;
     if (weibo.user.portraitImagePath) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:weibo.user.portraitImagePath] options:0 error:nil];
-            UIImage *image = [UIImage imageWithData:imageData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.headImageView.image = image;
-            });
-        });
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:weibo.user.portraitImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
     }
 }
 

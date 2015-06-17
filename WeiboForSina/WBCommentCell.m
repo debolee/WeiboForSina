@@ -7,6 +7,7 @@
 //
 
 #import "WBCommentCell.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation WBCommentCell
 
@@ -23,14 +24,7 @@
     _comment = comment;
     
     if (self.comment.user.portraitImagePath) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *heardImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.comment.user.portraitImagePath] options:0 error:nil];
-            UIImage *heardImage = [UIImage imageWithData:heardImageData];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.headImageView.image = heardImage;
-            });
-        });
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.comment.user.portraitImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
     }
     
     self.nick.text = comment.user.nickName;
