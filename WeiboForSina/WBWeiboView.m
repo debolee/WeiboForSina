@@ -7,6 +7,7 @@
 //
 
 #import "WBWeiboView.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation WBWeiboView
 
@@ -63,15 +64,7 @@
     if (self.weibo.thumbnailImage !=nil && ![self.weibo.thumbnailImage isEqualToString:@""]) {
         self.imageView.hidden = NO;
         self.imageView.frame = CGRectMake(10,self.textView.frame.size.height+10, 90, 90);
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.weibo.thumbnailImage] options:0 error:nil];
-            UIImage *image = [UIImage imageWithData:imageData];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.imageView.image = image;
-            });
-        });
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.weibo.thumbnailImage] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
         
     }else{//如果没有图片把图片隐藏
         self.imageView.hidden = YES;

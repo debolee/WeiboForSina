@@ -7,6 +7,7 @@
 //
 
 #import "WBDetailWeiboHeaderView.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation WBDetailWeiboHeaderView
 
@@ -29,14 +30,8 @@
     [self.attitCount setTitle:self.weibo.attitudesCount forState:UIControlStateNormal];
     
     if (self.weibo.user.portraitImagePath) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *heardImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.weibo.user.portraitImagePath] options:0 error:nil];
-            UIImage *heardImage = [UIImage imageWithData:heardImageData];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.headImageView.image = heardImage;
-            });
-        });
+        
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.weibo.user.portraitImagePath] placeholderImage:[UIImage imageNamed:@"placeholder_picture"]];
     }
     
     self.weiboView.weibo = self.weibo;
