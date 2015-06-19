@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WBSendWeiboViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *weiboTextView;
+@property (strong, nonatomic) UIView *toolbarAccView;
 
 @end

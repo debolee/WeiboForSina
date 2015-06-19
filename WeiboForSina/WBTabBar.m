@@ -16,9 +16,10 @@
 
 @implementation WBTabBar
 
+
 - (void)addButtonWithNormalImages:(NSArray *)normalImages AndSelectedImages:(NSArray *)selectedImages {
-    
-    //根据传入的图片的数量自动判断有多少个button
+
+    //根据传入的图片的数量自动判断button数量
     if (normalImages.count > 0 && selectedImages.count > 0) {
         NSInteger buttonCount = (normalImages.count <= normalImages.count) ? normalImages.count : selectedImages.count;
         
@@ -35,6 +36,7 @@
             if (i == 0) {
                 [self buttonClick:button];
             }
+            
             if (i == 2) {
                 [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
                 [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateSelected];

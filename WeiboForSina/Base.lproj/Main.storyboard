@@ -246,24 +246,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="请输入微博内容... ..." translatesAutoresizingMaskIntoConstraints="NO" id="5fH-JY-aOY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="156"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="转发微博。。。。" translatesAutoresizingMaskIntoConstraints="NO" id="DOu-Gy-iLl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="102"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="输入微博内容。。。。" translatesAutoresizingMaskIntoConstraints="NO" id="rGO-Dh-eiP">
+                                <rect key="frame" x="0.0" y="169" width="320" height="67"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="图片" id="h5Z-74-8Px"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="pOQ-O1-QUJ"/>
-                        <barButtonItem title="@" id="SYS-tt-ZQo"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sYP-7O-4Uq"/>
-                        <barButtonItem title="#" id="EXK-Pr-E20"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zUD-DU-EvS"/>
-                        <barButtonItem title="表情" id="RtL-Dk-gG4"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="j7a-qh-Yoh">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="OFY-Yt-fiB">
                             <connections>
@@ -276,6 +274,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="weiboTextView" destination="DOu-Gy-iLl" id="iH6-2y-uHc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmU-TK-iun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -854,7 +855,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bC6-hD-zbv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="9tf-OF-CdK" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tf-OF-CdK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CHn-rQ-O6d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
