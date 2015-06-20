@@ -10,6 +10,8 @@
 #import "WBDetailWeiboTableViewController.h"
 #import "WBDropdownMenuView.h"
 #import "WBTitleMenuViewController.h"
+#import "WBSendWeiboViewController.h"
+#import "WBWeiboCell.h"
 
 @interface WBHomeTableViewController () <WBDropdownMenuViewDelegate,WBTitleMenuDelegate>
 @property (nonatomic, strong)NSMutableArray *weibos;
@@ -44,7 +46,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"首页" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
-
+    
 }
 
 
@@ -152,7 +154,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WBWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WBWeiboCell" forIndexPath:indexPath];
-    
+    cell.delegate = self;
     NSLog(@"cell is cell...!!!");
     cell.weibo = [self.weibos objectAtIndex:indexPath.row];
     return cell;
@@ -170,6 +172,14 @@
     
     WBWeibo *weibo = [self.weibos objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toDetailWeiboVC" sender:weibo];
+}
+
+#pragma mark - WBWeiboCellDelegate
+
+- (void)WBWeiboCell:(WBWeiboCell *)cell clickedButton:(UIButton *)button {
+    if (button.tag == 0) {
+    [self performSegueWithIdentifier:@"toRepostWeiboVC" sender:cell];
+    }
 }
 
 /*
@@ -220,6 +230,13 @@
         
         WBDetailWeiboTableViewController *dvc = [segue destinationViewController];
         dvc.weibo = (WBWeibo *)sender;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toRepostWeiboVC"]) {
+        WBWeiboCell *cell = sender;
+        UINavigationController * naviVC = [segue destinationViewController];
+        WBSendWeiboViewController *sendVC = (WBSendWeiboViewController *)[naviVC topViewController];
+        sendVC.repostWeibo = cell.weiboView.weibo;
     }
 }
 

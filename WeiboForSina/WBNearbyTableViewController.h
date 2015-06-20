@@ -13,8 +13,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "WBDetailWeiboTableViewController.h"
 #import "WBMapViewController.h"
+#import "WBWeiboCell.h"
+#import "WBSendWeiboViewController.h"
 
-@interface WBNearbyTableViewController : UITableViewController<CLLocationManagerDelegate>
+@interface WBNearbyTableViewController : UITableViewController<CLLocationManagerDelegate, WBWeiboCellDelegate>
 @property(nonatomic) nearbyListViewStyle Style;
 @property(nonatomic, strong)CLLocationManager *manager;
 @property(nonatomic,strong) NSArray *results;

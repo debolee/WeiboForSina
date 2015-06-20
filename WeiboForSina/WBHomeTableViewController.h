@@ -10,6 +10,6 @@
 #import "WBWeiboAPI.h"
 #import "WBWeiboCell.h"
 
-@interface WBHomeTableViewController : UITableViewController
+@interface WBHomeTableViewController : UITableViewController <WBWeiboCellDelegate>
 
 @end
