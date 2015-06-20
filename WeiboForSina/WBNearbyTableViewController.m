@@ -149,6 +149,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.Style == nearbyListViewStyleWeibo) {
         WBWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WBWeiboCell" forIndexPath:indexPath];
+        cell.delegate = self;
         cell.weibo = [self.results objectAtIndex:indexPath.row];
         return cell;
     } else if (self.Style == nearbyListViewStyleUser) {
@@ -220,6 +221,15 @@
 }
 */
 
+
+#pragma mark - WBWeiboCellDelegate
+
+- (void)WBWeiboCell:(WBWeiboCell *)cell clickedButton:(UIButton *)button {
+    if (button.tag == 0) {
+        [self performSegueWithIdentifier:@"toRepostWeiboVC" sender:cell];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -234,7 +244,8 @@
     if ([segue.identifier isEqualToString:@"toDetailWeiboVC"]) {
         WBDetailWeiboTableViewController *detailVC = [segue destinationViewController];
         detailVC.weibo = sender;
-    } else if ([segue.identifier isEqualToString:@"toMapVC"]) {
+    }
+    if ([segue.identifier isEqualToString:@"toMapVC"]) {
         WBMapViewController *mapVC = [segue destinationViewController];
         if (self.Style == nearbyListViewStyleWeibo) {
             mapVC.Style = nearbyListViewStyleWeibo;
@@ -243,6 +254,12 @@
         }
         mapVC.results = self.results;
         mapVC.coord = self.coord;
+    }
+    if ([segue.identifier isEqualToString:@"toRepostWeiboVC"]) {
+        WBWeiboCell *cell = sender;
+        UINavigationController * naviVC = [segue destinationViewController];
+        WBSendWeiboViewController *sendVC = (WBSendWeiboViewController *)[naviVC topViewController];
+        sendVC.repostWeibo = cell.weiboView.weibo;
     }
 
 }

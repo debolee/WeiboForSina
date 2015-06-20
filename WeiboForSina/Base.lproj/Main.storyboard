@@ -237,7 +237,7 @@
         <!--Send Weibo View Controller-->
         <scene sceneID="JPw-mT-TFR">
             <objects>
-                <viewController id="90Q-qI-A9c" customClass="WBSendWeiboViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="90Q-qI-A9c" customClass="WBSendWeiboViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KGj-cN-fCO"/>
                         <viewControllerLayoutGuide type="bottom" id="a2V-qJ-s1O"/>
@@ -246,18 +246,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="转发微博。。。。" translatesAutoresizingMaskIntoConstraints="NO" id="DOu-Gy-iLl">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DOu-Gy-iLl">
                                 <rect key="frame" x="0.0" y="64" width="320" height="102"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="输入微博内容。。。。" translatesAutoresizingMaskIntoConstraints="NO" id="rGO-Dh-eiP">
-                                <rect key="frame" x="0.0" y="169" width="320" height="67"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eft-rg-ZOt">
+                                <rect key="frame" x="5" y="174" width="70" height="70"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-ic-2Es">
+                                <rect key="frame" x="83" y="169" width="80" height="80"/>
+                                <state key="normal" image="compose_pic_add.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="compose_pic_add_highlighted.png"/>
+                                <connections>
+                                    <action selector="addButtonClick:" destination="90Q-qI-A9c" eventType="touchUpInside" id="IIJ-bw-f7X"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Jw-hH-MKF">
+                                <rect key="frame" x="5" y="174" width="310" height="90"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lr4-Ao-04M">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU6-U7-DhV">
+                                        <rect key="frame" x="94" y="1" width="210" height="89"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -275,12 +296,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="weiboTextView" destination="DOu-Gy-iLl" id="iH6-2y-uHc"/>
+                        <outlet property="addImageButton" destination="lMW-ic-2Es" id="ezc-Jz-lX5"/>
+                        <outlet property="reWeiboImageView" destination="Lr4-Ao-04M" id="qID-MJ-YKd"/>
+                        <outlet property="reWeiboTextView" destination="BU6-U7-DhV" id="qeQ-ig-jkt"/>
+                        <outlet property="reWeiboView" destination="6Jw-hH-MKF" id="1LW-8T-rVK"/>
+                        <outlet property="weiboImageView" destination="eft-rg-ZOt" id="dui-WP-u1I"/>
+                        <outlet property="weiboTextView" destination="DOu-Gy-iLl" id="OLg-wX-NHj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmU-TK-iun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="-3171"/>
+            <point key="canvasLocation" x="1657" y="-3259"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="VbO-oe-kOx">
@@ -347,6 +373,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="W8U-WY-L4f" kind="push" identifier="toDetailWeiboVC" id="S9r-9M-45L"/>
+                        <segue destination="9tf-OF-CdK" kind="modal" identifier="toRepostWeiboVC" id="s5m-h0-cXy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LD-by-EH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,7 +398,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYf-yA-9mG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-3177"/>
+            <point key="canvasLocation" x="2126" y="-3073"/>
         </scene>
         <!--Detail Weibo Table View Controller-->
         <scene sceneID="9uR-iY-2D8">
@@ -558,7 +585,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxT-6C-QCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-2340"/>
+            <point key="canvasLocation" x="2150" y="-2300"/>
         </scene>
         <!--消息-->
         <scene sceneID="SUD-me-k5U">
@@ -763,6 +790,7 @@
                     <connections>
                         <segue destination="W8U-WY-L4f" kind="push" identifier="toDetailWeiboVC" id="PLj-K8-aZc"/>
                         <segue destination="GfK-8x-5av" kind="modal" identifier="toMapVC" id="5Wn-CV-Cvi"/>
+                        <segue destination="9tf-OF-CdK" kind="modal" identifier="toRepostWeiboVC" id="8HQ-eh-5aJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSf-0q-Gat" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -871,11 +899,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d86-hC-Vv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-3171"/>
+            <point key="canvasLocation" x="1183" y="-3267"/>
         </scene>
     </scenes>
     <resources>
         <image name="add_pic.png" width="29" height="25"/>
+        <image name="compose_pic_add.png" width="70" height="70"/>
+        <image name="compose_pic_add_highlighted.png" width="70" height="70"/>
         <image name="image_bg.png" width="384" height="202"/>
         <image name="login_btn_bg.png" width="294" height="47"/>
         <image name="messagescenter_at.png" width="48" height="48"/>
@@ -899,6 +929,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="S9r-9M-45L"/>
+        <segue reference="PLj-K8-aZc"/>
+        <segue reference="8HQ-eh-5aJ"/>
     </inferredMetricsTieBreakers>
 </document>

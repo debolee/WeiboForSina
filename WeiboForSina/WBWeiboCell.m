@@ -64,6 +64,10 @@
     
 }
 
+#pragma mark 转发/评论/点赞按钮
+- (IBAction)transButtonClick:(UIButton *)sender {
+    [self.delegate WBWeiboCell:self clickedButton:sender];
+}
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
