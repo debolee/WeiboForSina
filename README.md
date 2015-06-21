@@ -40,4 +40,4 @@
 
 
 ####效果图
-![sinaWeibo](http://cc.cocimg.com/bbs/attachment/postcate/topic/16/306893_189_c1ad14343610183f7e82fb284cd6d.gif)
+![sinaWeibo](http://cc.cocimg.com/bbs/attachment/postcate/topic/16/306893_189_6d6814348511248c7e2e754a4bb65.gif)
