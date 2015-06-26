@@ -15,7 +15,10 @@
 
 @interface WBHomeTableViewController () <WBDropdownMenuViewDelegate,WBTitleMenuDelegate>
 @property (nonatomic, strong)NSMutableArray *weibos;
+@property (nonatomic)NSInteger page;
 
+//记录是否正在加载更多微博的状态,YES表示正在加载
+@property (nonatomic)BOOL isLoadingMore;
 @end
 
 @implementation WBHomeTableViewController
@@ -33,7 +36,7 @@
 {
     [super viewDidLoad];
     self.weibos = [[NSMutableArray alloc]init];
-    
+    self.page = 1;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -47,10 +50,36 @@
     
     self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
     
+    
+//    添加下拉刷新控件
+    UIRefreshControl *refreshCtl = [[UIRefreshControl alloc]init];
+    refreshCtl.backgroundColor = [UIColor lightGrayColor];
+    [refreshCtl addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshCtl;
 }
 
 
-#pragma mark 1.设置导航栏中间titleView
+#pragma mark - 下拉刷新
+//  下拉刷新动作
+- (void)refreshAction:(UIRefreshControl *)refreshCtl {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
+        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
+            self.weibos = obj;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //重新加载数据
+                [self.tableView reloadData];
+                //还原tableview的位置
+                [self.refreshControl endRefreshing];
+            });
+        }];
+    }
+    if (self.refreshControl.refreshing) {
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新，请稍候!"];
+    }
+    
+}
+
+#pragma mark - 1.设置导航栏中间titleView
 - (UIButton *) titleViewWithTitleStr:(NSString *) title {
     UIButton *titleButton = [[UIButton alloc]init];
     [titleButton setTitle:title forState:UIControlStateNormal];
@@ -70,7 +99,7 @@
     return titleButton;
 }
 
-#pragma mark 2.添加导航栏中间titleButton的点击事件,弹出下拉菜单
+#pragma mark - 2.添加导航栏中间titleButton的点击事件,弹出下拉菜单
 - (void)titleClick:(UIButton *)titleButton {
 
 
@@ -89,7 +118,7 @@
     NSLog(@"titleClick:(UIButton *)titleButton。。。。");
 }
 
-#pragma mark 3.WBDropdownMenuViewDelegate
+#pragma mark - 3.WBDropdownMenuViewDelegate
 - (void)dropdownMenuDidDismiss:(WBDropdownMenuView *)menu {
     // 让指示箭头向上
     UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
@@ -110,7 +139,7 @@
 }
 
 
-#pragma mark 获取最新微博
+#pragma mark - 获取最新微博
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -129,7 +158,6 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    self.navigationController.toolbar.frame = CGRectMake(self.navigationController.toolbar.frame.origin.x, self.view.bounds.size.height - 44, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.bounds.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,6 +209,27 @@
     [self performSegueWithIdentifier:@"toRepostWeiboVC" sender:cell];
     }
 }
+
+#pragma mark - 上拉加载更多微博
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+    if (scrollView.contentOffset.y <= scrollView.contentSize.height - self.tableView.bounds.size.height + 48) {
+        self.isLoadingMore = NO;
+    } else {
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"] && !self.isLoadingMore) {
+            NSLog(@"。。。。。。。。。。。reloadMoreWeiboData!!!！！！！！！！！！");
+            [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:self.page++ completionCallBack:^(id obj) {
+                [self.weibos addObjectsFromArray:obj];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                });
+                NSLog(@"self.tableView reloadMoreWeiboData!!!");
+            }];
+        }
+        self.isLoadingMore = YES;
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.
