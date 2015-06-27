@@ -8,6 +8,7 @@
 
 #import "WBWeiboView.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "WBPhotoBrowseView.h"
 
 @implementation WBWeiboView
 
@@ -38,7 +39,25 @@
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, width, 90)];
     [self.imageView setContentMode:UIViewContentModeScaleToFill];
     
+//    给图片添加点击手势，点击时放大显示
+    self.imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageAction:)];
+    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.numberOfTouchesRequired = 1;
+    [self.imageView addGestureRecognizer:tapGesture];
     [self addSubview:self.imageView];
+    
+}
+
+- (void)tapImageAction:(UIImageView *)imageView {
+    NSLog(@"tap .....tap......tap.....");
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    CGRect rectInWindow = [self convertRect:self.imageView.frame toView:currentWindow];
+    if (self.imageView.image) {
+
+    WBPhotoBrowseView *browseView = [[WBPhotoBrowseView alloc]initWithUrlPath:self.weibo.originalImage thumbnailImage:self.imageView.image fromRect:rectInWindow];
+        [currentWindow addSubview:browseView];
+    }
     
 }
 

@@ -19,6 +19,7 @@
 @property(nonatomic,copy)NSString *text;              //微博内容
 @property(nonatomic,copy)NSString *source;            //微博来源
 @property(nonatomic,copy)NSString *thumbnailImage;    //缩略图片地址，没有时不返回此字段
+@property(nonatomic,copy)NSString *originalImage;    //原图片地址，没有时不返回此字段
 
 @property(nonatomic,strong)WBWeibo *retweetedWeibo;          //被转发的原微博
 @property(nonatomic,strong)WBUserInfo *user;              //微博的作者用户
