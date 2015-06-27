@@ -44,7 +44,7 @@
     myWeibo.createDate = [dic objectForKey:@"created_at"];
     
     myWeibo.text = [dic objectForKey:@"text"];
-    
+
     myWeibo.source = [dic objectForKey:@"source"];
     myWeibo.repostsCount = [NSString stringWithFormat:@"%@",[dic objectForKey:@"reposts_count"]];
     myWeibo.commentsCount = [NSString stringWithFormat:@"%@",[dic objectForKey:@"comments_count"]];
@@ -58,7 +58,7 @@
         myWeibo.coord = coord;
     }
     
-    
+    myWeibo.originalImage = [dic objectForKey:@"original_pic"];
     myWeibo.thumbnailImage = [dic objectForKey:@"thumbnail_pic"];
     id weiboID  = [dic objectForKey:@"id"];
     myWeibo.weiboId = [NSString stringWithFormat:@"%@",weiboID];

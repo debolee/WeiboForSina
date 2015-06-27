@@ -37,6 +37,7 @@
     [super viewDidLoad];
     self.weibos = [[NSMutableArray alloc]init];
     self.page = 1;
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -49,11 +50,22 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"首页" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
+
+#pragma mark - 获取最新微博
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
+        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
+            self.weibos = obj;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+            NSLog(@"self.tableView reloadData!!!");
+        }];
+    }
     
     
 //    添加下拉刷新控件
     UIRefreshControl *refreshCtl = [[UIRefreshControl alloc]init];
-    refreshCtl.backgroundColor = [UIColor lightGrayColor];
+//    refreshCtl.backgroundColor = [UIColor lightGrayColor];
     [refreshCtl addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshCtl;
 }
@@ -139,20 +151,9 @@
 }
 
 
-#pragma mark - 获取最新微博
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
-            self.weibos = obj;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
-            NSLog(@"self.tableView reloadData!!!");
-        }];
-    }
-    
+
 
 }
 
@@ -223,9 +224,9 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
                 });
-                NSLog(@"self.tableView reloadMoreWeiboData!!!");
             }];
         }
+        //设置为YES,表示当前已经发送一个更多微博的请求，防止滚动到屏幕底部时重复发送请求
         self.isLoadingMore = YES;
     }
 }
