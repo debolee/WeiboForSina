@@ -48,12 +48,12 @@
 ####效果图
 ---
 #####1.首页
-![sinaWeibo](http://img.blog.csdn.net/20150627205251608)
+![sinaWeibo](https://github.com/debolee/WeiboForSina/blob/master/1_Home.gif)
 #####2.消息
-![sinaWeibo](http://img.blog.csdn.net/20150627205313229)
+![sinaWeibo](https://github.com/debolee/WeiboForSina/blob/master/2_Message.gif)
 #####3.发布微博
-![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
+![sinaWeibo](https://github.com/debolee/WeiboForSina/blob/master/3_Send.gif)
 #####4. 发现
-![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
+![sinaWeibo](https://github.com/debolee/WeiboForSina/blob/master/4_Discover.gif)
 #####5. 我（个人中心）
-![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
+![sinaWeibo](https://github.com/debolee/WeiboForSina/blob/master/5_AboutMe.gif)
