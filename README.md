@@ -5,6 +5,7 @@
 使用的第三方库
 
 * SDWebImage
+* MJRefresh
 
 
 ####实现的主要功能

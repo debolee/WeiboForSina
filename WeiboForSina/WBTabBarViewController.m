@@ -45,10 +45,9 @@
     [self.tabBar addSubview:myTabBar];
     
     
-    
 }
 
-
+#pragma mark - WBTabBarDelegate
 - (void) tabBar:(WBTabBar *)tabBar selectedFromButton:(NSInteger)fromTag toButton:(NSInteger)toTag {
     switch (toTag) {
         case 0:

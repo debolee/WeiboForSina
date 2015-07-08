@@ -7,18 +7,12 @@
 //
 
 #import "WBHomeTableViewController.h"
-#import "WBDetailWeiboTableViewController.h"
-#import "WBDropdownMenuView.h"
-#import "WBTitleMenuViewController.h"
-#import "WBSendWeiboViewController.h"
-#import "WBWeiboCell.h"
+
 
 @interface WBHomeTableViewController () <WBDropdownMenuViewDelegate,WBTitleMenuDelegate>
 @property (nonatomic, strong)NSMutableArray *weibos;
 @property (nonatomic)NSInteger page;
-
-//记录是否正在加载更多微博的状态,YES表示正在加载
-@property (nonatomic)BOOL isLoadingMore;
+//@property (nonatomic)BOOL isLoadingMore; //记录是否正在加载更多微博的状态,YES表示正在加载
 @end
 
 @implementation WBHomeTableViewController
@@ -37,18 +31,8 @@
     [super viewDidLoad];
     self.weibos = [[NSMutableArray alloc]init];
     self.page = 1;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
-//    self.title = @"首页";
     [self.tableView registerNib:[UINib nibWithNibName:@"WBWeiboCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"WBWeiboCell"];
-    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"首页" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
     self.navigationItem.titleView = [self titleViewWithTitleStr:@"选择分组"];
 
 #pragma mark - 获取最新微博
@@ -62,34 +46,66 @@
         }];
     }
     
+#pragma mark - 下拉刷新微博
+//    添加下拉刷新控件（系统自带）
+//    UIRefreshControl *refreshCtl = [[UIRefreshControl alloc]init];
+//    [refreshCtl addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
+//    self.refreshControl = refreshCtl;
+
+//    添加下拉刷新控件（MJRefresh）
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshWeibo)];
     
-//    添加下拉刷新控件
-    UIRefreshControl *refreshCtl = [[UIRefreshControl alloc]init];
-//    refreshCtl.backgroundColor = [UIColor lightGrayColor];
-    [refreshCtl addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshCtl;
+#pragma mark - 上拉加载更多微博
+//    添加上拉加载更多微博（MJRefresh）
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreWeibo)];
 }
 
 
-#pragma mark - 下拉刷新
-//  下拉刷新动作
-- (void)refreshAction:(UIRefreshControl *)refreshCtl {
+//  下拉刷新动作(系统自带)
+//- (void)refreshWeiboAction:(UIRefreshControl *)refreshCtl {
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
+//        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
+//            self.weibos = obj;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                //重新加载数据
+//                [self.tableView reloadData];
+//                //还原tableview的位置
+//                [self.refreshControl endRefreshing];
+//            });
+//        }];
+//    }
+//    if (self.refreshControl.refreshing) {
+//        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新，请稍候!"];
+//    }
+//    
+//}
+
+//  下拉刷新动作(MJRefresh)
+- (void)refreshWeibo {
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
+            [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
+                self.weibos = obj;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //重新加载数据
+                    [self.tableView reloadData];
+                    [self.tableView.header endRefreshing];
+                });
+            }];
+        }
+}
+//  上拉加载更多微博动作(MJRefresh)
+- (void)loadMoreWeibo {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]) {
-        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:1 completionCallBack:^(id obj) {
-            self.weibos = obj;
+        [[WBWeiboAPI shareWeiboApi] requestHomeTimeLineWithPageNumber:self.page++ completionCallBack:^(id obj) {
+            [self.weibos addObjectsFromArray:obj];
             dispatch_async(dispatch_get_main_queue(), ^{
-                //重新加载数据
                 [self.tableView reloadData];
-                //还原tableview的位置
-                [self.refreshControl endRefreshing];
+                [self.tableView.footer endRefreshing];
             });
         }];
     }
-    if (self.refreshControl.refreshing) {
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新，请稍候!"];
-    }
-    
 }
+
 
 #pragma mark - 1.设置导航栏中间titleView
 - (UIButton *) titleViewWithTitleStr:(NSString *) title {
@@ -204,14 +220,15 @@
 }
 
 #pragma mark - WBWeiboCellDelegate
-
 - (void)WBWeiboCell:(WBWeiboCell *)cell clickedButton:(UIButton *)button {
     if (button.tag == 0) {
     [self performSegueWithIdentifier:@"toRepostWeiboVC" sender:cell];
     }
 }
 
-#pragma mark - 上拉加载更多微博
+
+/*
+//上拉自动加载更多微博(自定义方法)
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     if (scrollView.contentOffset.y <= scrollView.contentSize.height - self.tableView.bounds.size.height + 48) {
@@ -230,7 +247,7 @@
         self.isLoadingMore = YES;
     }
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

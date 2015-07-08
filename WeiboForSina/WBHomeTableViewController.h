@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WBWeiboAPI.h"
 #import "WBWeiboCell.h"
+#import "WBDetailWeiboTableViewController.h"
+#import "WBDropdownMenuView.h"
+#import "WBTitleMenuViewController.h"
+#import "WBSendWeiboViewController.h"
+#import "WBWeiboCell.h"
+#import "MJRefresh.h"
 
 @interface WBHomeTableViewController : UITableViewController <WBWeiboCellDelegate>
 
