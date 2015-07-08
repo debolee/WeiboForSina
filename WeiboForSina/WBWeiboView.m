@@ -63,7 +63,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    //此位置写显示内容和更改尺寸的代码
+    //显示内容并布局
     float width = self.window.bounds.size.width - 20;
     if (self.isDetail) {
         width = self.window.bounds.size.width - 20;
@@ -99,13 +99,14 @@
                 [self.relWeiboView setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
             [self addSubview:self.relWeiboView];
         }
-        //        复用的时候如果没有转发需要隐藏  有则显示出来
+        //复用的时候如果没有转发需要隐藏  有则显示出来
         self.relWeiboView.hidden = NO;
         //更新尺寸
         self.relWeiboView.frame = CGRectMake(0, self.textView.frame.size.height + 10, width, [self.relWeiboView.weibo getWeiboHeightIsDetailPage:self.isDetail]);
         //告诉控件显示的内容是什么
         self.relWeiboView.weibo = self.weibo.retweetedWeibo;
-    }else{//如果没有转发就隐藏 不隐藏的话 会显示复用之前的内容
+    }else{
+        //如果没有转发就隐藏 不隐藏的话 会显示复用之前的内容
         self.relWeiboView.hidden = YES;
     }
     //********************************************

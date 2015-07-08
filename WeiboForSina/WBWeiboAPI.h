@@ -10,7 +10,9 @@
 #import "WBJsonParser.h"
 
 typedef void (^callBack) (id obj);
+
 @interface WBWeiboAPI : NSObject
+
 + (WBWeiboAPI *) shareWeiboApi;
 
 //获取当前登录用户及其所关注用户的最新微博
