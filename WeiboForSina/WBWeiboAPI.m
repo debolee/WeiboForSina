@@ -23,7 +23,7 @@ static WBWeiboAPI *weiboApi;
 //获取当前登录用户及其所关注用户的最新微博
 - (void)requestHomeTimeLineWithPageNumber:(NSInteger)page completionCallBack:(callBack)callBack {
     
-    NSString *params = [NSString stringWithFormat:@"since_id=0&max_id=0&count=20&page=%ld&base_app=0&feature=0&trim_user=0", (long)page];
+    NSString *params = [NSString stringWithFormat:@"since_id=0&max_id=0&count=5&page=%ld&base_app=0&feature=0&trim_user=0", (long)page];
     
     
     [self getByApiName:@"statuses/home_timeline.json" andParams:params andCallBack:^(id obj) {
