@@ -7,9 +7,8 @@
 * SDWebImage
 * MJRefresh
 
-
 ####实现的主要功能
-
+---
 #####1. 首页
 	首页微博列表
 	详细微博
@@ -38,12 +37,23 @@
 
 
 ####TODO
-	优化发布微博功能
-	优化图片放大显示原图细节
-	适配iPhone 6/6+
+---
+优化发布微博功能
+
+优化图片放大显示原图细节
+
+适配iPhone 6/6+
 
 
 ####效果图
+---
+#####1.首页
 ![sinaWeibo](http://img.blog.csdn.net/20150627205251608)
+#####2.消息
 ![sinaWeibo](http://img.blog.csdn.net/20150627205313229)
+#####3.发布微博
+![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
+#####4. 发现
+![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
+#####5. 我（个人中心）
 ![sinaWeibo](http://img.blog.csdn.net/20150627205337857)
